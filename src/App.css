@@ -1,12 +1,18 @@
-body{
-  background-image: url("./bgimg1.jpg");
+body {
+  background-image: url('./bgimg1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.my-button-success
-{
+.my-button-success {
   padding-top: 10px;
-  padding:5px 5%;
-  margin-top:40px;
+  padding: 5px 8%;
+  
+}
+
+.from-button
+{
+  margin-top: 40px;
+  background-color: white;
+ 
 }
