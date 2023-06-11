@@ -1,5 +1,7 @@
 body{
-  background-color: beige;
+  background-image: url("./bgimg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .my-button-success
