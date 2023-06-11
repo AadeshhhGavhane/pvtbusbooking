@@ -66,7 +66,7 @@ export default function Homenav() {
               <Box
                 component="form"
                 sx={{
-                  "& .MuiTextField-root": { m: 1, width: "25ch" },
+                  "& .MuiTextField-root": { m: 0, width: "25ch" },
                 }}
                 noValidate
                 autoComplete="off"
@@ -74,7 +74,7 @@ export default function Homenav() {
                 <TextField
                   id="outlined-select-currency"
                   select
-                  label="Choose"
+                  // label="Choose"            
                   defaultValue="Journey"
                   SelectProps={{
                     native: true,
@@ -90,9 +90,10 @@ export default function Homenav() {
               </Box>
             </div>
           </div>
-          <Button variant="contained" color="success">
+          <Button className="my-button-success" variant="contained" color="success" size="medium" >
             Success
           </Button>
+          
         </form>
       </div>
     </>
