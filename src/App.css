@@ -2,17 +2,7 @@ body {
   background-image: url('./bgimg1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -1000;
 }
 
-.my-button-success {
-  padding-top: 10px;
-  padding: 5px 8%;
-  
-}
 
-.from-button
-{
-  margin-top: 40px;
-  background-color: white;
- 
-}
