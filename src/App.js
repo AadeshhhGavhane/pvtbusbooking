@@ -10,7 +10,7 @@ function App({ children }) {
     <Router>
       <Navbar />
       
-      <HomePage></HomePage>
+      <HomePage/>
 
       {/* <Home /> */}
       <Routes>
