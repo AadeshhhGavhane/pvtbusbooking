@@ -11,9 +11,8 @@ function App({ children }) {
   return (
     <Router>
       <Navbar />
-
-      {/* <HomePage></HomePage> */}
-      <RadioButtonsGroup></RadioButtonsGroup>
+      
+      <HomePage></HomePage>
 
       {/* <Home /> */}
       <Routes>

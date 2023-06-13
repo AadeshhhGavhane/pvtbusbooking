@@ -2,22 +2,91 @@ import * as React from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import TextField from "@mui/material/TextField";
-// import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-// import Grid from "@mui/material/Grid";
-// import MenuItem from "@mui/material/MenuItem"; // Import the MenuItem component
+import {
+  Button,
+  Typography,
+  Container,
+  CssBaseline,
+  makeStyles,
+  Grid,
+  TextField,
+  Select,
+  FormControl,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
 
-import Stack from "@mui/material/Stack";
-import { flexbox } from "@mui/system";
-import { alignProperty } from "@mui/material/styles/cssUtils";
-
-// export default function Home() {
-//   const currencies = [
-//     {
-    
-
-
-//     }
-// };
+export default function Home() {
+  return (
+    <>
+      <CssBaseline />
+      <main>
+        <div>
+          <Container maxWidth="sm" style={{ marginTop: "50px" }}>
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Book a Private Bus
+            </Typography>
+            <Typography
+              variant="h6"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Kindly Fill Out The Fields!
+            </Typography>
+          </Container>
+          <Container style={{ marginTop: "50px" }}>
+            <Grid container spacing={2} justifyContent="center" direction="row">
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="From"
+                  variant="outlined"
+                />
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="To"
+                  variant="outlined"
+                />
+              </Grid>
+              <Grid item>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker />
+                </LocalizationProvider>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Journey Type
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Journey Type"
+                  >
+                    <MenuItem>Journey</MenuItem>
+                    <MenuItem>Return</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
+                <Button fullWidth variant="contained">
+                  Proceed
+                </Button>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
+      </main>
+    </>
+  );
+}
