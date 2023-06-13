@@ -15,7 +15,7 @@ const Signup = () => {
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
     return (
-        <Grid>
+        <Grid container>
             <Paper elevation={20} style={paperStyle}>
                 <Grid align='center'>
                     <Avatar style={avatarStyle}>
@@ -25,26 +25,38 @@ const Signup = () => {
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
                 <Stack spacing={2}>
-                <form container spacing = {5}>
-                    <Item><TextField fullWidth label='Name' placeholder="Enter your name" /></Item>
-                    <Item>
-                        <TextField fullWidth label='Email' placeholder="Enter your email" /></Item>
-                    <Item><FormControl component="fieldset" style={marginTop}>
-                    <FormLabel component="legend">Gender</FormLabel>
-                    <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl></Item>
-                    <Item><TextField fullWidth label='Phone Number' placeholder="Enter your phone number" /></Item>
-
-                    <Item><TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/></Item>
-                    <Item><FormControlLabel
-                        control={<Checkbox name="checkedA" />}
-                        label="I accept the terms and conditions."
-                    /></Item>
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button >
-                </form>
+                    <form container spacing={5}>
+                        <Grid item>
+                            <TextField fullWidth label='Name' placeholder="Enter your name" />
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Email' placeholder="Enter your email" />
+                        </Grid>
+                        <Grid item>
+                            <FormControl component="fieldset" style={marginTop}>
+                                <FormLabel component="legend">Gender</FormLabel>
+                                <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
+                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Confirm Password' placeholder="Confirm your password" />
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Checkbox name="checkedA" />}
+                                label="I accept the terms and conditions."
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+                        </Grid>
+                    </form>
                 </Stack>
             </Paper>
         </Grid>
