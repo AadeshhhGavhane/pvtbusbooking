@@ -1,19 +1,111 @@
-// import { flexbox } from "@mui/system";
-import React from "react";
+import * as React from "react";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import TextField from "@mui/material/TextField";
+// import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+// import MenuItem from "@mui/material/MenuItem"; // Import the MenuItem component
 
-const HomePage = () => {
+import Stack from "@mui/material/Stack";
+import { flexbox } from "@mui/system";
+import { alignProperty } from "@mui/material/styles/cssUtils";
+
+export default function Home() {
+  const currencies = [
+    {
+      value: "Journey",
+      label: "Journey",
+    },
+    {
+      value: "Return",
+      label: "Return",
+    },
+  ];
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "90vh",
-      }}
-    >
-      Home hi
-    </div>
-  );
-};
+    // <Container>
+    //   <div className="container my-5">
+    //     <form className="d-flex flex-column align-items-start">
+    //       <div className="d-flex align-items-center">
+    //         <TextField
+    //           className="form-control"
+    //           id="fromAddress"
+    //           variant="outlined"
+    //           size="medium"
+    //           fullWidth
+    //           label="From"
+    //         />
+    //         <TextField
+    //           className="form-control mx-2"
+    //           id="toAddress"
+    //           variant="outlined"
+    //           size="medium"
+    //           fullWidth
+    //           label="To"
+    //         />
+    //         <LocalizationProvider dateAdapter={AdapterDayjs}>
+    //           <DatePicker
+    //             id="journeyDate"
+    //             size="medium"
+    //             fullWidth
+    //             label="Journey Date"
+    //           />
+    //         </LocalizationProvider>
+    //         <TextField
+    //           id="outlined-select-currency"
+    //           select
+    //           variant="outlined"
+    //           size="medium"
+    //           fullWidth
+    //           defaultValue="Journey"
+    //           SelectProps={{
+    //             native: true,
 
-export default HomePage;
+    //           }}
+    //           label="Journey Type"
+    //           helperText="Please select your Journey Type"
+    //         >
+    //           {currencies.map((option) => (
+    //             <option key={option.value} value={option.value}>
+    //               {option.label}
+    //             </option>
+    //           ))}
+    //         </TextField>
+    //       </div>
+
+    //       <div className="d-flex justify-content-center my-3">
+    //         <Button
+    //           className="my-button-success"
+    //           variant="contained"
+    //           color="success"
+    //           size="medium"
+    //         >
+    //           Success
+    //         </Button>
+    //       </div>
+    //     </form>
+    //   </div>
+    // </Container>
+
+    <Stack direction="row" spacing={2}>
+      <div className="d-flex align-items-center">
+        <TextField
+          className="form-control"
+          id="fromAddress"
+          variant="outlined"
+          size="medium"
+          fullWidth
+          label="From"
+          style={{
+            display: "flexbox",
+            justifyContent: "center",
+            flexDirection:"row"
+          }}
+        />
+      </div>
+    </Stack>
+  );
+}
