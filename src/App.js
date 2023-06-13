@@ -1,17 +1,19 @@
 // import logo from './logo.svg';
 import "./App.css";
-import HomePage from "./components/Home/HomePage";
-import Navbar from "./components/Navbar";
+//import HomePage from "./components/Home/HomePage";
+//import Navbar from "./components/Navbar";
+//import Login from "./components/Login/Login"; 
 import React from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
+import Signup from "./components/SignUp/Signup";
 
 function App({ children }) {
   return (
     <Router>
-      <Navbar />
-      
-      <HomePage></HomePage>
-
+     {/*<Navbar />*/}
+      <Signup/>
+      {/*<HomePage></HomePage>*/}
+     {/* <Login/> */}
       {/* <Home /> */}
       <Routes>
         {/* <Route path="/" exact component={HomePage} /> */}
