@@ -2,110 +2,91 @@ import * as React from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import TextField from "@mui/material/TextField";
-// import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-// import Grid from "@mui/material/Grid";
-// import MenuItem from "@mui/material/MenuItem"; // Import the MenuItem component
-
-import Stack from "@mui/material/Stack";
-import { flexbox } from "@mui/system";
-import { alignProperty } from "@mui/material/styles/cssUtils";
+import {
+  Button,
+  Typography,
+  Container,
+  CssBaseline,
+  makeStyles,
+  Grid,
+  TextField,
+  Select,
+  FormControl,
+  MenuItem,
+  InputLabel,
+} from "@mui/material";
 
 export default function Home() {
-  const currencies = [
-    {
-      value: "Journey",
-      label: "Journey",
-    },
-    {
-      value: "Return",
-      label: "Return",
-    },
-  ];
-
   return (
-    // <Container>
-    //   <div className="container my-5">
-    //     <form className="d-flex flex-column align-items-start">
-    //       <div className="d-flex align-items-center">
-    //         <TextField
-    //           className="form-control"
-    //           id="fromAddress"
-    //           variant="outlined"
-    //           size="medium"
-    //           fullWidth
-    //           label="From"
-    //         />
-    //         <TextField
-    //           className="form-control mx-2"
-    //           id="toAddress"
-    //           variant="outlined"
-    //           size="medium"
-    //           fullWidth
-    //           label="To"
-    //         />
-    //         <LocalizationProvider dateAdapter={AdapterDayjs}>
-    //           <DatePicker
-    //             id="journeyDate"
-    //             size="medium"
-    //             fullWidth
-    //             label="Journey Date"
-    //           />
-    //         </LocalizationProvider>
-    //         <TextField
-    //           id="outlined-select-currency"
-    //           select
-    //           variant="outlined"
-    //           size="medium"
-    //           fullWidth
-    //           defaultValue="Journey"
-    //           SelectProps={{
-    //             native: true,
-
-    //           }}
-    //           label="Journey Type"
-    //           helperText="Please select your Journey Type"
-    //         >
-    //           {currencies.map((option) => (
-    //             <option key={option.value} value={option.value}>
-    //               {option.label}
-    //             </option>
-    //           ))}
-    //         </TextField>
-    //       </div>
-
-    //       <div className="d-flex justify-content-center my-3">
-    //         <Button
-    //           className="my-button-success"
-    //           variant="contained"
-    //           color="success"
-    //           size="medium"
-    //         >
-    //           Success
-    //         </Button>
-    //       </div>
-    //     </form>
-    //   </div>
-    // </Container>
-
-    <Stack direction="row" spacing={2}>
-      <div className="d-flex align-items-center">
-        <TextField
-          className="form-control"
-          id="fromAddress"
-          variant="outlined"
-          size="medium"
-          fullWidth
-          label="From"
-          style={{
-            display: "flexbox",
-            justifyContent: "center",
-            flexDirection:"row"
-          }}
-        />
-      </div>
-    </Stack>
+    <>
+      <CssBaseline />
+      <main>
+        <div>
+          <Container maxWidth="sm" style={{ marginTop: "50px" }}>
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Book a Private Bus
+            </Typography>
+            <Typography
+              variant="h6"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Kindly Fill Out The Fields!
+            </Typography>
+          </Container>
+          <Container style={{ marginTop: "50px" }}>
+            <Grid container spacing={2} justifyContent="center" direction="row">
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="From"
+                  variant="outlined"
+                />
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  label="To"
+                  variant="outlined"
+                />
+              </Grid>
+              <Grid item>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker />
+                </LocalizationProvider>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel id="demo-simple-select-label">
+                    Journey Type
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    label="Journey Type"
+                  >
+                    <MenuItem>Journey</MenuItem>
+                    <MenuItem>Return</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
+                <Button fullWidth variant="contained">
+                  Proceed
+                </Button>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
+      </main>
+    </>
   );
 }
