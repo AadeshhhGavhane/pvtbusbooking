@@ -1,8 +1,6 @@
-// import logo from './logo.svg';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import RadioButtonsGroup from "./components/BusType/RadioButtonsGroup";
-
-// import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/Home/HomePage";
 import AboutUs from "./components/pages/AboutUs";
@@ -23,8 +21,8 @@ function App() {
           <Route path="/policy" element={<Policy />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/faqs" element={<Faqs />} />
-          <Route exact path = "/signup" element={<SignUp/>}/>
-          <Route exact path = "/login" element={<Login/>}/>
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
