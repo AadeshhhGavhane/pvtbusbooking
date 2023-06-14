@@ -17,7 +17,7 @@ const Navbar = () => {
             src={require("https://raw.githubusercontent.com/briancodex/react-navbar-v3/642eefd7f46c977087898c4ba0a3dc5564dd301c/src/images/logo.svg")}
             alt="logo"
           /> */}
-          <h1>Logo</h1>
+          <h1>Home</h1>
         </NavLink>
         <Bars />
         <NavMenu>
