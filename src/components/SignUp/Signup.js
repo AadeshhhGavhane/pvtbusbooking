@@ -26,23 +26,23 @@ const Signup = () => {
                 </Grid>
                 <Stack spacing={2}>
                 <form container spacing = {5}>
-                    <Item><TextField fullWidth label='Name' placeholder="Enter your name" /></Item>
-                    <Item>
-                        <TextField fullWidth label='Email' placeholder="Enter your email" /></Item>
-                    <Item><FormControl component="fieldset" style={marginTop}>
+                    <TextField fullWidth label='Name' placeholder="Enter your name" />
+                    
+                        <TextField fullWidth label='Email' placeholder="Enter your email" />
+                    <FormControl component="fieldset" style={marginTop}>
                     <FormLabel component="legend">Gender</FormLabel>
                     <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
                     <FormControlLabel value="female" control={<Radio />} label="Female" />
                             <FormControlLabel value="male" control={<Radio />} label="Male" />
                         </RadioGroup>
-                    </FormControl></Item>
-                    <Item><TextField fullWidth label='Phone Number' placeholder="Enter your phone number" /></Item>
+                    </FormControl>
+                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
 
-                    <Item><TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/></Item>
-                    <Item><FormControlLabel
+                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
+                    <FormControlLabel
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
-                    /></Item>
+                    />
                     <Button type='submit' variant='contained' color='primary'>Sign up</Button >
                 </form>
                 </Stack>
