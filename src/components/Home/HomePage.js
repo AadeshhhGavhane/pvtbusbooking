@@ -16,7 +16,14 @@ import {
   InputLabel,
 } from "@mui/material";
 
+
+
 export default function Home() {
+
+  const HandleClick =()=>
+  {
+     let b=true;
+  }
   return (
     <>
       <CssBaseline />
@@ -79,7 +86,7 @@ export default function Home() {
                 </FormControl>
               </Grid>
               <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button fullWidth variant="contained">
+                <Button onClick={HandleClick}fullWidth variant="contained">
                   Proceed
                 </Button>
               </Grid>

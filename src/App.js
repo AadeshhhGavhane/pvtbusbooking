@@ -1,29 +1,31 @@
-// import logo from './logo.svg';
-import "./App.css";
-//import HomePage from "./components/Home/HomePage";
-import Navbar from "./components/Navbar";
 import React from "react";
-import ProfilePage from "./components/Profile/ProfilePage";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
-import Signup from "./components/SignUp/Signup";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import HomePage from "./components/Home/HomePage";
+import AboutUs from "./components/pages/AboutUs";
+import Policy from "./components/pages/Policy";
+import ContactUs from "./components/pages/ContactUs";
+import Faqs from "./components/pages/Faqs";
+import SignUp from "./components/SignUp/Signup";
+import Login from "./components/Login/Login";
 
-function App({ children }) {
+function App() {
   return (
-    <Router>
-     {/* <Navbar /> */}
-      {/* <Signup/> */}
-      {/*<HomePage></HomePage>*/}
-     {/* <Login/> */}
-      {/* <Home /> */}
-        <ProfilePage/>
-      <Routes>
-        {/* <Route path="/" exact component={HomePage} /> */}
-        {/* <Route path="/about" component={HomePage} /> */}
-        {/* <Route path="/services" component={Services} />
-          <Route path="/contact-us" component={Contact} />
-          <Route path="/sign-up" component={SignUp} />  */}
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/policy" element={<Policy />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/faqs" element={<Faqs />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
