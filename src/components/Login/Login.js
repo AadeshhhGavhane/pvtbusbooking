@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 const Login=()=>{
 
-    const paperStyle={padding :20,height:'80vh',width:400, margin:"50px auto"}
+    const paperStyle={padding :20,height:'50vh',width:400, margin:"50px auto"}
     const avatarStyle={backgroundColor:'#1bbd7e'}
     const btnstyle={margin:'8px 0'}
     return(
@@ -33,7 +33,7 @@ const Login=()=>{
                 </Link>
                 </Typography>
                 <Typography gutterBottom  > Do you have an account ?
-                     <Link href="#" >
+                     <Link href="/signup" >
                         Sign Up 
                 </Link>
                 </Typography>
