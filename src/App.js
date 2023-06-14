@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import "./App.css";
+import TemplateCard from "./components/BusTypeCardSelector/TemplateCard";
 import RadioButtonsGroup from "./components/BusType/RadioButtonsGroup";
-
 import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
 import React from "react";
@@ -11,10 +11,9 @@ function App({ children }) {
   return (
     <Router>
       <Navbar />
+      {/* if (b === false) {<HomePage />} else {<TemplateCard />} */}
 
-      <HomePage></HomePage>
-
-      <RadioButtonsGroup></RadioButtonsGroup>
+      {/* <RadioButtonsGroup></RadioButtonsGroup> */}
       {/* <Home /> */}
       <Routes>
         {/* <Route path="/" exact component={HomePage} /> */}
