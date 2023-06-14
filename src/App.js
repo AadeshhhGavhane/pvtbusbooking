@@ -1,28 +1,33 @@
 // import logo from './logo.svg';
 import "./App.css";
-import TemplateCard from "./components/BusTypeCardSelector/TemplateCard";
 import RadioButtonsGroup from "./components/BusType/RadioButtonsGroup";
-import HomePage from "./components/Home/HomePage";
+
+// import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
-import React from "react";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
+import HomePage from "./components/Home/HomePage";
+import AboutUs from "./components/pages/AboutUs";
+import Policy from "./components/pages/Policy";
+import ContactUs from "./components/pages/ContactUs";
+import Faqs from "./components/pages/Faqs";
+import SignUp from "./components/SignUp/Signup";
+import Login from "./components/Login/Login";
 
-function App({ children }) {
+function App() {
   return (
-    <Router>
-      <Navbar />
-      {/* if (b === false) {<HomePage />} else {<TemplateCard />} */}
-
-      {/* <RadioButtonsGroup></RadioButtonsGroup> */}
-      {/* <Home /> */}
-      <Routes>
-        {/* <Route path="/" exact component={HomePage} /> */}
-        {/* <Route path="/about" component={HomePage} /> */}
-        {/* <Route path="/services" component={Services} />
-          <Route path="/contact-us" component={Contact} />
-          <Route path="/sign-up" component={SignUp} />  */}
-      </Routes>
-    </Router>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/policy" element={<Policy />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/faqs" element={<Faqs />} />
+          <Route exact path = "/signup" element={<SignUp/>}/>
+          <Route exact path = "/login" element={<Login/>}/>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
