@@ -1,9 +1,12 @@
+
 import * as React from "react";
 import "./HomePage.css";
 // import "firebase/database";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+
+// import { Typewriter } from 'typewriter-effect';
 import {
   Button,
   Typography,
@@ -49,6 +52,19 @@ export default function Home() {
   //       console.error("Error sending data to the database:", error);
   //     });
   // };
+
+
+  //---------For typewriter effect -------------------
+
+  // React.useEffect(() => {
+  //   // Initialize the Typewriter effect
+  //   new Typewriter("#typewriter-text", {
+  //     strings: ["Reserve Your Private Bus", "Create Lasting Memories!"],
+  //     autoStart: true,
+  //     loop: true,
+  //   });
+  // }, []);
+
   return (
     <>
       <CssBaseline />
@@ -98,7 +114,6 @@ export default function Home() {
                   </InputLabel>
 
                   <Select
-                   
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Journey Type"

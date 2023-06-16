@@ -5,6 +5,7 @@
     border: none; /* Remove the border */
     opacity: 0.8; /* Adjust the transparency level */
     cursor: pointer;
+
 }
 
 .dobby,Select {
@@ -13,4 +14,9 @@
     border-radius: 15px; /* Make the button circular */
     border: none; /* Remove the border */
     opacity: 0.8; /* Adjust the transparency level */
+}
+
+.dobby
+{
+    animation: ease-in 0.5s;
 }
