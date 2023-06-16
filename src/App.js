@@ -2,16 +2,18 @@
 import "./App.css";
 import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
+import Subnavbar from "./components/Navbar/Subnavbar";
 import React from "react";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Switch, Link } from "react-router-dom";
 
 function App({ children }) {
   return (
     <Router>
       <Navbar />
-      
-      <HomePage></HomePage>
+      <Subnavbar/>
 
+      <HomePage/>
+  
       {/* <Home /> */}
       <Routes>
         {/* <Route path="/" exact component={HomePage} /> */}
