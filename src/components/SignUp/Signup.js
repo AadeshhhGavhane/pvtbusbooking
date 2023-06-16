@@ -8,7 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Stack from '@mui/material/Stack';
-//import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const Signup = () => {
     const paperStyle = { padding: '60px 30px', width: 450, margin: "40px auto" }
@@ -26,26 +26,38 @@ const Signup = () => {
                     <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
                 <Stack spacing={2}>
-                <form container spacing = {5}>
-                    <TextField fullWidth label='Name' placeholder="Enter your name" />
-                    
-                        <TextField fullWidth label='Email' placeholder="Enter your email" />
-                    <FormControl component="fieldset" style={marginTop}>
-                    <FormLabel component="legend">Gender</FormLabel>
-                    <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                    <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
-                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password"/>
-                    <FormControlLabel
-                        control={<Checkbox name="checkedA" />}
-                        label="I accept the terms and conditions."
-                    />
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button >
-                </form>
+                    <form container spacing={5}>
+                        <Grid item>
+                            <TextField fullWidth label='Name' placeholder="Enter your name" />
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Email' placeholder="Enter your email" />
+                        </Grid>
+                        <Grid item>
+                            <FormControl component="fieldset" style={marginTop}>
+                                <FormLabel component="legend">Gender</FormLabel>
+                                <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
+                                    <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                    <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                </RadioGroup>
+                            </FormControl>
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
+                        </Grid>
+                        <Grid item>
+                            <TextField fullWidth label='Confirm Password' placeholder="Confirm your password" />
+                        </Grid>
+                        <Grid item>
+                            <FormControlLabel
+                                control={<Checkbox name="checkedA" />}
+                                label="I accept the terms and conditions."
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Button type='submit' variant='contained' color='primary'>Sign up</Button>
+                        </Grid>
+                    </form>
                 </Stack>
             </Paper>
         </Grid>
