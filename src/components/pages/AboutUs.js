@@ -14,7 +14,7 @@ export default function AboutUs() {
               color="textPrimary"
               gutterBottom
             >
-              About US
+              About Us
             </Typography>
             <Typography
               variant="h6"
