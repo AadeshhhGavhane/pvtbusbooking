@@ -9,6 +9,7 @@ import {
 } from "./NavbarElements";
 
 const Navbar = () => {
+  const loggedInVariable = false;
   return (
     <>
       {loggedInVariable === false ? (
