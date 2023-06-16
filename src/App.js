@@ -1,19 +1,22 @@
-// import logo from './logo.svg';
+import React from "react";
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+// import Navbar from "./components/Navbar";
+// import ProfilePage2 from "./components/Profile/ProfilePage2";
+// import { Stack,Box} from "@mui/system";
+// import Rightbar from "./components/Profile/Rightbar";
 import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
-import Subnavbar from "./components/Navbar/Subnavbar";
 import React from "react";
-import { BrowserRouter as Router, Routes, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes } from "react-router-dom";
 
-function App({ children }) {
+function App() {
   return (
     <Router>
       <Navbar />
-      <Subnavbar/>
+      
+      <HomePage></HomePage>
 
-      <HomePage/>
-  
       {/* <Home /> */}
       <Routes>
         {/* <Route path="/" exact component={HomePage} /> */}
