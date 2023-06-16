@@ -11,7 +11,7 @@ export default function AboutUs() {
             <Typography
               variant="h2"
               align="center"
-              color="white"
+              color="textPrimary"
               gutterBottom
             >
               Contact US

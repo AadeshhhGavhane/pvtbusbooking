@@ -8,41 +8,69 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
-import "./Navbar.css"
-
 const Navbar = () => {
   return (
     <>
-      <Nav>
-        <NavLink to="/">
-          {/* <img
-            src={require("https://raw.githubusercontent.com/briancodex/react-navbar-v3/642eefd7f46c977087898c4ba0a3dc5564dd301c/src/images/logo.svg")}
-            alt="logo"
-          /> */}
-          <h1>Home</h1>
-        </NavLink>
-        <Bars />
-        <NavMenu>
-          <NavLink to="/about" activeStyle>
-            About
+      {loggedInVariable === false ? (
+        <Nav>
+          <NavLink to="/">
+            {/* <img
+              src={require("https://raw.githubusercontent.com/briancodex/react-navbar-v3/642eefd7f46c977087898c4ba0a3dc5564dd301c/src/images/logo.svg")}
+              alt="logo"
+            /> */}
+            <h1>Home</h1>
           </NavLink>
-          <NavLink to="/policy" activeStyle>
-            Policy
+          <Bars />
+          <NavMenu>
+            <NavLink to="/about" activeStyle>
+              About
+            </NavLink>
+            <NavLink to="/policy" activeStyle>
+              Policy
+            </NavLink>
+            <NavLink to="/contact" activeStyle>
+              Contact Us
+            </NavLink>
+            <NavLink to="/signup" activeStyle>
+              Sign Up
+            </NavLink>
+            <NavLink to="/faqs" activeStyle>
+              FAQs
+            </NavLink>
+          </NavMenu>
+          <NavBtn>
+            <NavBtnLink to="/login">Log In</NavBtnLink>
+          </NavBtn>
+        </Nav>
+      ) : (
+        <Nav>
+          <NavLink to="/">
+            {/* <img
+              src={require("https://raw.githubusercontent.com/briancodex/react-navbar-v3/642eefd7f46c977087898c4ba0a3dc5564dd301c/src/images/logo.svg")}
+              alt="logo"
+            /> */}
+            <h1>Home</h1>
           </NavLink>
-          <NavLink to="/contact" activeStyle>
-            Contact Us
-          </NavLink>
-          <NavLink to="/signup" activeStyle>
-            Sign Up
-          </NavLink>
-          <NavLink to="/faqs" activeStyle>
-            FAQs
-          </NavLink>
-        </NavMenu>
-        <NavBtn>
-          <NavBtnLink to="/login">Log In</NavBtnLink>
-        </NavBtn>
-      </Nav>
+          <Bars />
+          <NavMenu>
+            <NavLink to="/about" activeStyle>
+              About
+            </NavLink>
+            <NavLink to="/policy" activeStyle>
+              Policy
+            </NavLink>
+            <NavLink to="/contact" activeStyle>
+              Contact Us
+            </NavLink>
+            <NavLink to="/faqs" activeStyle>
+              FAQs
+            </NavLink>
+          </NavMenu>
+          <NavBtn>
+            <NavBtnLink to="#">My profile</NavBtnLink>
+          </NavBtn>
+        </Nav>
+      )}
     </>
   );
 };

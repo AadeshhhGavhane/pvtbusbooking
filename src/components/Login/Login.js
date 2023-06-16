@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Paper,
@@ -12,7 +12,13 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 
+export let loggedInVariable=false;
 const Login = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const confirmLogin = () =>{
+    setLoggedIn(true)
+    loggedInVariable = {loggedIn}
+  }
   const paperStyle = {
     padding: 20,
     height: "50vh",
@@ -57,6 +63,7 @@ const Login = () => {
           </Grid>
           <Grid item xs={12}>
             <Button
+            onClick={confirmLogin}
               type="submit"
               color="primary"
               variant="contained"
