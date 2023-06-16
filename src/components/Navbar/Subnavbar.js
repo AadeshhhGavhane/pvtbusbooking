@@ -1,45 +1,39 @@
 import React from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, Menu, MenuItem, Avatar, Tooltip } from '@mui/material';
-import { Menu as MenuIcon, Adb as AdbIcon } from '@mui/icons-material';
+import { AppBar, Box, Toolbar, Typography, Menu, MenuItem } from '@mui/material';
+import { Adb as AdbIcon } from '@mui/icons-material';
 
 function Subnavbar() {
-    const menuItems = [
-        { label: 'Travel Details', link: '/travel-details' },
-        { label: 'Confirm Bus type', link: '/confirm-bus-type' },
-        { label: 'Review Journey', link: '/review-journey' },
-        { label: 'Payment', link: '/payment' },
-    ]
+  const menuItems = [
+    { label: 'Travel Details', link: '/travel-details' },
+    { label: 'Confirm Bus type', link: '/confirm-bus-type' },
+    { label: 'Review Journey', link: '/review-journey' },
+    { label: 'Payment', link: '/payment' },
+  ];
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'orange' }}>
-      <Toolbar disableGutters>
-        
+    <AppBar position="static" sx={{ backgroundColor: '#46aa8ff' }}>
+      <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'center' }}>
         <Typography
           variant="h6"
           noWrap
           component="a"
-          href="/"
           sx={{
-            mr: 2,
-            display: { xs: 'none', md: 'flex' },
-            fontFamily: 'monospace',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
             fontWeight: 700,
-            letterSpacing: '.3rem',
-            color: 'black',
+            color: '#fff',
             textDecoration: 'none',
+            width: '100%',
           }}
         >
-            &nbsp;&nbsp;&nbsp;&nbsp;{menuItems.map((item, index) => (
+          {menuItems.map((item, index) => (
             <React.Fragment key={index}>
-              {index !== 0 && <>&nbsp;&nbsp;--->&nbsp;</>}
+              {index !== 0 && <Box mx={4} />}
               {`${index + 1}. ${item.label}`}
             </React.Fragment>
           ))}
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Travel Details ----->&nbsp;
-            Confirm Bus type ----->&nbsp;
-            Review Journey------>&nbsp;
-            Payment
         </Typography>
-        
 
         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
           <Menu
@@ -62,7 +56,9 @@ function Subnavbar() {
             </MenuItem>
           </Menu>
         </Box>
+
         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
         <Typography
           variant="h5"
           noWrap
@@ -78,16 +74,12 @@ function Subnavbar() {
             color: 'Black',
             textDecoration: 'none',
           }}
-        >
-          
-        </Typography>
+        ></Typography>
+
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
 
         <Box sx={{ flexGrow: 0 }}>
-          <Menu
-            sx={{ mt: '45px' }}
-            id="menu-appbar"
-          />
+          <Menu sx={{ mt: '45px' }} id="menu-appbar" />
         </Box>
       </Toolbar>
     </AppBar>
