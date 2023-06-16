@@ -5,15 +5,20 @@ import Navbar from "./components/Navbar";
 import React from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import Signup from "./components/SignUp/Signup";
+import OrderSum from "./components/OrderSum/OrderSum";
 
 function App({ children }) {
+
+  
   return (
+    
     <Router>
      {/*<Navbar />*/}
-      <Signup/>
+      {/* <Signup/> */}
       {/*<HomePage></HomePage>*/}
      {/* <Login/> */}
       {/* <Home /> */}
+      <OrderSum/>
       <Routes>
         {/* <Route path="/" exact component={HomePage} /> */}
         {/* <Route path="/about" component={HomePage} /> */}
