@@ -10,6 +10,7 @@ import {
 
 const Navbar = () => {
   const loggedInVariable = false;
+  
   return (
     <>
       {loggedInVariable === false ? (
