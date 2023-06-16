@@ -1,34 +1,36 @@
 import React from "react";
-//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-// import Navbar from "./components/Navbar";
-// import ProfilePage2 from "./components/Profile/ProfilePage2";
-// import { Stack,Box} from "@mui/system";
-// import Rightbar from "./components/Profile/Rightbar";
-import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
-import React from "react";
-import { BrowserRouter as Router, Routes } from "react-router-dom";
-import Signup from "./components/SignUp/Signup";
+import Subnavbar from "./components/Navbar/Subnavbar"
+import ProfilePage2 from "./components/Profile/ProfilePage2";
+import { Stack,Box} from "@mui/system";
+import Rightbar from "./components/Profile/Rightbar";
+import HomePage from "./components/Home/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AboutUs from "./components/pages/AboutUs";
+import Policy from "./components/pages/Policy";
+import ContactUs from "./components/pages/ContactUs";
+import Faqs from "./components/pages/Faqs";
+import SignUp from "./components/SignUp/Signup";
+import Login from "./components/Login/Login";
 
 function App({ children }) {
   return (
-    
-    <Router>
-     {/*<Navbar />*/}
-      <Signup/>
-      {/*<HomePage></HomePage>*/}
-     {/* <Login/> */}
-      {/* <Home /> */}
-      <OrderSum/>
-      <Routes>
-        {/* <Route path="/" exact component={HomePage} /> */}
-        {/* <Route path="/about" component={HomePage} /> */}
-        {/* <Route path="/services" component={Services} />
-          <Route path="/contact-us" component={Contact} />
-          <Route path="/sign-up" component={SignUp} />  */}
-      </Routes>
-    </Router>
+    <>
+        <Router>
+          <Navbar/>
+          <Subnavbar/>
+          <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/policy" element={<Policy />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/faqs" element={<Faqs />} />
+          <Route exact path="/signup" element={<SignUp />} />
+          <Route exact path="/login" element={<Login />} />
+          </Routes>
+        </Router>
+    </>
   );
 }
 
