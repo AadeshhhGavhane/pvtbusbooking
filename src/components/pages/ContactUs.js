@@ -12,6 +12,7 @@ export default function AboutUs() {
               variant="h2"
               align="center"
               color="textPrimary"
+              style={{ color: 'white' }}
               gutterBottom
             >
               Contact US

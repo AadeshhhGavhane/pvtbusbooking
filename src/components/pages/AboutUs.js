@@ -12,6 +12,7 @@ export default function AboutUs() {
               variant="h2"
               align="center"
               color="textPrimary"
+              style={{ color: 'white' }}
               gutterBottom
             >
               About Us
@@ -20,6 +21,7 @@ export default function AboutUs() {
               variant="h6"
               align="center"
               color="textSecondary"
+              style={{ color: 'white' }}
               paragraph
             >
               Welcome to our bus rental app! We provide a convenient platform for booking buses for various purposes. Whether you need transportation for a school trip, corporate event, or family vacation, we've got you covered.
