@@ -1,6 +1,4 @@
 import * as React from "react";
-import "./HomePage.css";
-// import "firebase/database";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -17,88 +15,68 @@ import {
   MenuItem,
   InputLabel,
 } from "@mui/material";
-// import { firebase } from "../Firebase/firebase";
 
-export default function Home() {
-  const HandleClick = () => {
-    let b = true;
+export default function BusBook(props) {
+  const handleClick = () => {
+    props.sendData(true);
   };
 
-  ///----------------Dont erase doing firebase connection but not getting----------
-  // const handleClick = () => {
-  //   // Get the values from the input fields
-  //   const from = document.getElementById("outlined-basic-from").value;
-  //   const to = document.getElementById("outlined-basic-to").value;
-  //   const journeyType = document.getElementById("demo-simple-select").value;
+  const handleSendToParent = (data) => {
+    props.sendToParent(data);
+  };
 
-  //   // Create a new reference to the database path where you want to store the data
-  //   const databaseRef = firebase.database().ref("busReservations");
-
-  //   // Push the data to the database
-  //   const newReservationRef = databaseRef.push();
-  //   newReservationRef
-  //     .set({
-  //       from: from,
-  //       to: to,
-  //       journeyType: journeyType,
-  //     })
-  //     .then(() => {
-  //       console.log("Data sent to the database successfully.");
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error sending data to the database:", error);
-  //     });
-  // };
   return (
     <>
       <CssBaseline />
       <main>
         <div>
           <Container maxWidth="sm" style={{ marginTop: "50px" }}>
-            <Typography variant="h3" align="center" color="white" gutterBottom>
-              Reserve Your Private Bus and Create Lasting Memories!
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              Book a Private Bus
             </Typography>
-            <Typography variant="h6" align="center" color="white" paragraph>
+            <Typography
+              variant="h6"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
               Kindly Fill Out The Fields!
             </Typography>
           </Container>
-
           <Container style={{ marginTop: "50px" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
               <Grid item xs={12} md={3}>
                 <TextField
                   fullWidth
-                  className="dobby"
-                  // id=""
+                  id="outlined-basic"
                   label="From"
                   variant="outlined"
                 />
               </Grid>
-
               <Grid item xs={12} md={3}>
                 <TextField
                   fullWidth
                   id="outlined-basic"
-                  className="dobby"
                   label="To"
                   variant="outlined"
                 />
               </Grid>
-
               <Grid item>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker className="dobby" />
+                  <DatePicker />
                 </LocalizationProvider>
               </Grid>
-
               <Grid item xs={12} md={3}>
-                <FormControl className="dobby" fullWidth>
+                <FormControl fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Journey Type
                   </InputLabel>
-
                   <Select
-                   
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Journey Type"
@@ -108,9 +86,8 @@ export default function Home() {
                   </Select>
                 </FormControl>
               </Grid>
-
               <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button onClick={HandleClick} fullWidth variant="contained">
+                <Button onClick={() => handleSendToParent(false)} fullWidth variant="contained">
                   Proceed
                 </Button>
               </Grid>

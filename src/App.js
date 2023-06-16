@@ -1,20 +1,22 @@
-// import logo from './logo.svg';
+import React from "react";
+//import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+// import Navbar from "./components/Navbar";
+// import ProfilePage2 from "./components/Profile/ProfilePage2";
+// import { Stack,Box} from "@mui/system";
+// import Rightbar from "./components/Profile/Rightbar";
 import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar";
 import React from "react";
 import { BrowserRouter as Router, Routes } from "react-router-dom";
 import Signup from "./components/SignUp/Signup";
-import OrderSum from "./components/OrderSum/OrderSum";
 
 function App({ children }) {
-
-  
   return (
     
     <Router>
      {/*<Navbar />*/}
-      {/* <Signup/> */}
+      <Signup/>
       {/*<HomePage></HomePage>*/}
      {/* <Login/> */}
       {/* <Home /> */}
