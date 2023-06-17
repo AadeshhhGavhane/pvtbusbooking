@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Subnavbar from "./components/Navbar/Subnavbar"
@@ -15,21 +15,22 @@ import SignUp from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
 
 function App({ children }) {
+
   return (
     <>
-        <Router>
-          <Navbar/>
-          <Subnavbar/>
-          <Routes>
-          <Route path="/" element={<HomePage/>} />
+      <Router>
+        <Navbar />
+        <Subnavbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/faqs" element={<Faqs />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/login" element={<Login />} />
-          </Routes>
-        </Router>
+        </Routes>
+      </Router>
     </>
   );
 }
