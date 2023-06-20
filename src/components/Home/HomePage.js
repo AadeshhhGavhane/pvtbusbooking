@@ -64,6 +64,7 @@ export default function Home() {
               <Grid item xs={12} md={3}>
                 {/* <LocationSearchInput /> */}
               </Grid>
+              
 
               <Grid item xs={12} md={3}>
                 <TextField
@@ -73,7 +74,7 @@ export default function Home() {
                   label="To"
                   variant="outlined"
                 /> 
-                <input id="address" autocomplete="off" class="form-control" type="text"/>
+                {/* <input id="address" autocomplete="off" class="form-control" type="text"/> */}
               </Grid>
 
               <Grid item>
