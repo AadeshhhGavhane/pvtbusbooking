@@ -30,8 +30,6 @@ function App({ children }) {
           <Route path="/policy" element={<Policy />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/faqs" element={<Faqs />} />
-          <Route exact path="/signup" element={<SignUp />} />
-          <Route exact path="/login" element={<Login />} />
         </Routes>
       </Router>
     </>
