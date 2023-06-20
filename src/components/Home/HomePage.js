@@ -62,7 +62,13 @@ export default function Home() {
             <Container style={{ marginTop: "50px" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
               <Grid item xs={12} md={3}>
-                {/* <LocationSearchInput /> */}
+              <TextField
+                  fullWidth
+                  id="outlined-basic"
+                  className="dobby"
+                  label="From"
+                  variant="outlined"
+                /> 
               </Grid>
 
               <Grid item xs={12} md={3}>
@@ -73,7 +79,6 @@ export default function Home() {
                   label="To"
                   variant="outlined"
                 /> 
-                <input id="address" autocomplete="off" class="form-control" type="text"/>
               </Grid>
 
               <Grid item>
