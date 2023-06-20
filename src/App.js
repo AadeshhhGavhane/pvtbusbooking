@@ -13,13 +13,16 @@ import ContactUs from "./components/pages/ContactUs";
 import Faqs from "./components/pages/Faqs";
 import SignUp from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
-
+import TemplateCard from "./components/BusType/TemplateCard"
+import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
 function App({ children }) {
 
   return (
     <>
       <Router>
         <Navbar />
+        {/* <TemplateCard></TemplateCard> */}
+        {/* <MapboxAutocomplete /> */}
         <Subnavbar />
         <Routes>
           <Route path="/" element={<HomePage />} />

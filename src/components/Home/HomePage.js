@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -17,6 +17,9 @@ import {
   MenuItem,
   InputLabel,
 } from "@mui/material";
+
+import "./MapboxAutocomplete";
+import { Input } from "@mui/base";
 
 export default function Home() {
   const HandleClick = () => {
@@ -37,6 +40,11 @@ export default function Home() {
     };
   }, []);
 
+  const [journeyType, setJourneyType] = useState("");
+  const handleJourneyTypeChange = (event) => {
+    setJourneyType(event.target.value);
+  };
+
   return (
     <>
       <CssBaseline />
@@ -51,15 +59,10 @@ export default function Home() {
             </Typography>
           </Container>
 
-          <Container style={{ marginTop: "50px" }}>
+            <Container style={{ marginTop: "50px" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
               <Grid item xs={12} md={3}>
-                <TextField
-                  fullWidth
-                  className="dobby"
-                  label="From"
-                  variant="outlined"
-                />
+                {/* <LocationSearchInput /> */}
               </Grid>
 
               <Grid item xs={12} md={3}>
@@ -69,7 +72,8 @@ export default function Home() {
                   className="dobby"
                   label="To"
                   variant="outlined"
-                />
+                /> 
+                <input id="address" autocomplete="off" class="form-control" type="text"/>
               </Grid>
 
               <Grid item>
@@ -88,9 +92,11 @@ export default function Home() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Journey Type"
+                    value={journeyType}
+                    onChange={handleJourneyTypeChange}
                   >
-                    <MenuItem>Journey</MenuItem>
-                    <MenuItem>Return</MenuItem>
+                    <MenuItem value="One-way">One-way</MenuItem>
+                    <MenuItem value="Return">Return</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>

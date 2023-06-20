@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Typography,
-} from "@mui/material";
+import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import IconButton from "@mui/material/IconButton";
 
 const ActionAreaCard = () => {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -15,9 +11,7 @@ const ActionAreaCard = () => {
   };
 
   return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}
-    >
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
       <Card
         sx={{
           maxWidth: 345,
@@ -26,12 +20,22 @@ const ActionAreaCard = () => {
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(0)}>
-          <CardMedia
-            component="img"
-            height="140"
-            // image="/static/images/cards/contemplative-reptile.jpg"
-            alt="green iguana"
-          />
+          <div style={{ position: "relative" }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
+              alt="green iguana"
+            />
+            {selectedCard === 0 && (
+              <IconButton
+                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
+                size="small"
+              >
+                <CheckCircleIcon sx={{ color: "green" }} />
+              </IconButton>
+            )}
+          </div>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               Small-Sized Bus
@@ -41,9 +45,10 @@ const ActionAreaCard = () => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        {selectedCard === 0 && <input type="checkbox" checked />}
       </Card>
 
+      {/* Repeat the same pattern for other cards */}
+      {/* Card 2 */}
       <Card
         sx={{
           maxWidth: 345,
@@ -52,12 +57,22 @@ const ActionAreaCard = () => {
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(1)}>
-          <CardMedia
-            component="img"
-            height="140"
-            // image="/static/images/cards/contemplative-reptile.jpg"
-            alt="green iguana"
-          />
+          <div style={{ position: "relative" }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
+              alt="green iguana"
+            />
+            {selectedCard === 1 && (
+              <IconButton
+                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
+                size="small"
+              >
+                <CheckCircleIcon sx={{ color: "green" }} />
+              </IconButton>
+            )}
+          </div>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               Medium-Sized Bus
@@ -67,9 +82,9 @@ const ActionAreaCard = () => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        {selectedCard === 1 && <input type="checkbox" checked />}
       </Card>
 
+      {/* Card 3 */}
       <Card
         sx={{
           maxWidth: 345,
@@ -78,12 +93,22 @@ const ActionAreaCard = () => {
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(2)}>
-          <CardMedia
-            component="img"
-            height="140"
-            // image="/static/images/cards/contemplative-reptile.jpg"
-            alt="Medium-Sized Bus"
-          />
+          <div style={{ position: "relative" }}>
+            <CardMedia
+              component="img"
+              height="140"
+              image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
+              alt="green iguana"
+            />
+            {selectedCard === 2 && (
+              <IconButton
+                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
+                size="small"
+              >
+                <CheckCircleIcon sx={{ color: "green" }} />
+              </IconButton>
+            )}
+          </div>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               Large-Sized Bus
@@ -93,7 +118,6 @@ const ActionAreaCard = () => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        {selectedCard === 2 && <input type="checkbox" checked />}
       </Card>
     </div>
   );
