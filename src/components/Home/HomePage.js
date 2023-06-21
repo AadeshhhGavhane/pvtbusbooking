@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./HomePage.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -18,31 +18,16 @@ import {
   InputLabel,
 } from "@mui/material";
 
-import "./MapboxAutocomplete";
-import { Input } from "@mui/base";
+import ActionAreaCard from "../BusType/TemplateCard";
+import RadioButtonsGroup from "../BusType/RadioButtonsGroup";
 
 export default function Home() {
-  const HandleClick = () => {
-    let b = true;
-  };
+  const [showFields, setShowFields] = useState(true);
+  const [showComponents, setShowComponents] = useState(false);
 
-  useEffect(() => {
-    // Initialize the Typewriter effect
-    const typewriter = new Typewriter("#typewriter-text", {
-      strings: ["Reserve Your Private Bus", "Create Lasting Memories!"],
-      autoStart: true,
-      loop: true,
-      typeSpeed: 20,
-    });
-    return () => {
-      // Clean up the Typewriter effect
-      typewriter.stop();
-    };
-  }, []);
-
-  const [journeyType, setJourneyType] = useState("");
-  const handleJourneyTypeChange = (event) => {
-    setJourneyType(event.target.value);
+  const handleClick = () => {
+    setShowFields(false);
+    setShowComponents(true);
   };
 
   return (
@@ -54,65 +39,81 @@ export default function Home() {
             <Typography variant="h3" align="center" color="white" gutterBottom>
               <span id="typewriter-text"></span>
             </Typography>
-            <Typography variant="h6" align="center" color="white" paragraph>
-              Kindly Fill Out The Fields!
-            </Typography>
+            {showFields && (
+              <Typography variant="h6" align="center" color="white" paragraph>
+                Kindly Fill Out The Fields!
+              </Typography>
+            )}
           </Container>
 
-            <Container style={{ marginTop: "50px" }}>
+          <Container style={{ marginTop: "50px" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
-              <Grid item xs={12} md={3}>
-              <TextField
-                  fullWidth
-                  id="outlined-basic"
-                  className="dobby"
-                  label="From"
-                  variant="outlined"
-                /> 
-              </Grid>
+              {showFields && (
+                <>
+                  <Grid item xs={12} md={3}>
+                    <TextField
+                      fullWidth
+                      className="dobby"
+                      label="From"
+                      variant="outlined"
+                    />
+                  </Grid>
 
-              <Grid item xs={12} md={3}>
-                <TextField
-                  fullWidth
-                  id="outlined-basic"
-                  className="dobby"
-                  label="To"
-                  variant="outlined"
-                /> 
-              </Grid>
+                  <Grid item xs={12} md={3}>
+                    <TextField
+                      fullWidth
+                      id="outlined-basic"
+                      className="dobby"
+                      label="To"
+                      variant="outlined"
+                    />
+                  </Grid>
 
-              <Grid item>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker className="dobby" />
-                </LocalizationProvider>
-              </Grid>
+                  <Grid item>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DatePicker className="dobby" />
+                    </LocalizationProvider>
+                  </Grid>
 
-              <Grid item xs={12} md={3}>
-                <FormControl className="dobby" fullWidth>
-                  <InputLabel id="demo-simple-select-label">
-                    Journey Type
-                  </InputLabel>
+                  <Grid item xs={12} md={3}>
+                    <FormControl className="dobby" fullWidth>
+                      <InputLabel id="demo-simple-select-label">
+                        Journey Type
+                      </InputLabel>
 
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    label="Journey Type"
-                    value={journeyType}
-                    onChange={handleJourneyTypeChange}
-                  >
-                    <MenuItem value="One-way">One-way</MenuItem>
-                    <MenuItem value="Return">Return</MenuItem>
-                  </Select>
-                </FormControl>
-              </Grid>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Journey Type"
+                      >
+                        <MenuItem>Journey</MenuItem>
+                        <MenuItem>Return</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                </>
+              )}
 
               <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button onClick={HandleClick} fullWidth variant="contained">
+                <Button onClick={handleClick} fullWidth variant="contained">
                   Proceed
                 </Button>
               </Grid>
             </Grid>
           </Container>
+
+          {/* Render the components when showComponents is true */}
+          {showComponents && (
+            <>
+              <Container style={{ marginTop: "50px" }}>
+                <ActionAreaCard />
+              </Container>
+
+              <Container style={{ marginTop: "50px" }}>
+                <RadioButtonsGroup />
+              </Container>
+            </>
+          )}
         </div>
       </main>
     </>
