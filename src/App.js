@@ -1,10 +1,11 @@
 import React from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
+// import "./App.css";
+ import Navbar from "./components/Navbar";
 import Subnavbar from "./components/Navbar/Subnavbar"
-import ProfilePage2 from "./components/Profile/ProfilePage2";
-import { Stack,Box} from "@mui/system";
-import Rightbar from "./components/Profile/Rightbar";
+import MyAccount from "./components/Profile/MyAccount"
+import MyBookings from "./components/Profile/MyBookings";
+import MyProfile from "./components/Profile/MyProfile";
+import ManageBookings from "./components/Profile/ManageBookings"
 import HomePage from "./components/Home/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./components/pages/AboutUs";
@@ -14,9 +15,11 @@ import Faqs from "./components/pages/Faqs";
 import SignUp from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
 
+
 function App({ children }) {
   return (
     <>
+
         <Router>
           <Navbar/>
           <Subnavbar/>
@@ -28,6 +31,7 @@ function App({ children }) {
           <Route path="/faqs" element={<Faqs />} />
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/myaccount" element={<MyAccount />} />
           </Routes>
         </Router>
     </>

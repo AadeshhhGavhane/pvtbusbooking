@@ -8,9 +8,12 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 
+
+
 const Navbar = () => {
   return (
     <>
+   
       <Nav>
         <NavLink to="/">
           {/* <img
