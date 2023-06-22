@@ -1,16 +1,22 @@
 .dobby {
     background-color: aqua;
     background: aqua;
-    border-radius: 15px; /* Make the button circular */
-    border: none; /* Remove the border */
-    opacity: 0.8; /* Adjust the transparency level */
+    border-radius: 15px; 
+    border: none; 
+    opacity: 0.8; 
     cursor: pointer;
+
 }
 
 .dobby,Select {
     background-color: aqua;
     background: aqua;
-    border-radius: 15px; /* Make the button circular */
-    border: none; /* Remove the border */
-    opacity: 0.8; /* Adjust the transparency level */
+    border-radius: 15px; 
+    border: none; 
+    opacity: 0.8; 
+}
+
+.dobby
+{
+    animation: ease-in 0.5s;
 }

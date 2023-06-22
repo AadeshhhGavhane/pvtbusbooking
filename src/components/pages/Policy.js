@@ -7,7 +7,7 @@ export default function Policy() {
     <CssBaseline/>
     <main>
         <div>
-          <Container maxWidth="sm" style={{ marginTop: "50px" }}>
+          <Container maxWidth="sm" style={{ marginTop: "50px"}}>
             <Typography
               variant="h2"
               align="center"

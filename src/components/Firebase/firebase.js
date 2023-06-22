@@ -1,5 +1,6 @@
 // import React from "react";
-// import { initializeApp } from 'firebase/app';
+// import "firebase/firestore";
+// import firebase from "firebase/app";
 
 // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 // const firebaseConfig = {
@@ -14,6 +15,6 @@
 
 // firebase.initializeApp(firebaseConfig);
 
-// const database = firebase.database();
+// // const database = firebase.database();
 
-// export default { firebase, database };
+// export default firebase ;
