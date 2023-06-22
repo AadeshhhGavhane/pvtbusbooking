@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid, TextField } from '@mui/material';
+import { Box, Grid, TextField ,Button, Container} from '@mui/material';
 
 const Rightbar = () => {
   return (
@@ -44,6 +44,11 @@ const Rightbar = () => {
       /> 
      </Grid> 
   </Grid>
+     <Container justifyContent="center">
+                <Button sx={{width : '50', maxWidth: "142%"}} justifyContent="center" variant="contained">
+                  Proceed
+                </Button>
+              </Container>
 </Box>
   )
 }

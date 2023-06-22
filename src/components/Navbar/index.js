@@ -40,7 +40,7 @@ const Navbar = () => {
             FAQs
           </NavLink>
           { isAuthenticated && (
-          <NavLink to="/myprofile" activeStyle>
+          <NavLink to="/myaccount" activeStyle>
             My Profile
           </NavLink>)
           }
