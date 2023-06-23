@@ -12,9 +12,6 @@ import {
 } from "@mui/material";
 import { pink } from "@mui/material/colors";
 
-
-
-
 export default function Review() {
  
   return (
