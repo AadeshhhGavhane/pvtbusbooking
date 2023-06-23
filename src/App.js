@@ -15,6 +15,8 @@ import Faqs from "./components/pages/Faqs";
 import SignUp from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
 
+import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
+
 
 function App({ children }) {
   return (
@@ -23,6 +25,7 @@ function App({ children }) {
         <Router>
           <Navbar/>
           <Subnavbar/>
+          <MapboxAutocomplete/>
           <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/about" element={<AboutUs />} />

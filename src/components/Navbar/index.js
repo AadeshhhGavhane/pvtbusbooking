@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Nav,
   NavLink,
@@ -8,20 +8,11 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { useAuth0 } from "@auth0/auth0-react";
-import {Links} from "react-router-dom";
-
-import "./Navbar.css";
 
 
 
 const Navbar = () => {
   const { user, loginWithRedirect, logout, isAuthenticated } = useAuth0();
-
-  const [click, setClick] = useState(false);
-
-  const handleClick=()=>{
-    setClick(!click);
-  }
 
   return (
     <>
@@ -36,18 +27,12 @@ const Navbar = () => {
         </NavLink>
         <Bars />
         <NavMenu>
-          
-          <div className="menu-icon" onClick={handleClick} color="white">
-            <i className={click ? "fas fa-times" : "fas fa-bars"} />
-            {/* <p>helo</p> */}
-          </div>
           <NavLink to="/about" activeStyle>
             About
           </NavLink>
           <NavLink to="/policy" activeStyle>
             Policy
           </NavLink>
-          
           <NavLink to="/contact" activeStyle>
             Contact Us
           </NavLink>
@@ -55,7 +40,7 @@ const Navbar = () => {
             FAQs
           </NavLink>
           { isAuthenticated && (
-          <NavLink to="/myprofile" activeStyle>
+          <NavLink to="/myaccount" activeStyle>
             My Profile
           </NavLink>)
           }
