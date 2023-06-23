@@ -12,6 +12,8 @@
     "@mui/system": "^5.8.0",
     "@mui/x-date-pickers": "^6.7.0",
     "@types/react": "^17.0.0 || ^18.0.0",
+    "autosuggest-highlight": "^3.3.4",
+    "axios": "^1.4.0",
     "css": "^3.0.0",
     "date-fns": "^2.25.0",
     "date-fns-jalali": "^2.13.0-0",
