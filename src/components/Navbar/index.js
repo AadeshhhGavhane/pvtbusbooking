@@ -12,6 +12,8 @@ import {Links} from "react-router-dom";
 
 import "./Navbar.css";
 
+
+
 const Navbar = () => {
   const { user, loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
@@ -22,7 +24,8 @@ const Navbar = () => {
   }
 
   return (
-    <> 
+    <>
+   
       <Nav>
         <NavLink to="/">
           {/* <img
@@ -51,11 +54,11 @@ const Navbar = () => {
           <NavLink to="/faqs" activeStyle>
             FAQs
           </NavLink>
-          {isAuthenticated && (
-            <NavLink to="/myprofile" activeStyle>
-              My Profile
-            </NavLink>
-          )}
+          { isAuthenticated && (
+          <NavLink to="/myprofile" activeStyle>
+            My Profile
+          </NavLink>)
+          }
         </NavMenu>
         {isAuthenticated ? (
           <NavBtn>

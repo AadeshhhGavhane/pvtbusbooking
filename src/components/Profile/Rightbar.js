@@ -1,12 +1,16 @@
-import React from 'react'
-import { Box } from '@mui/material'
+import React from 'react';
+import MyProfile from './MyProfile';
+import MyBookings from './MyBookings';
+import ManageBookings from './ManageBookings';
 
-const Rightbar = () => {
+const Rightbar = ({ activeTab }) => {
   return (
-   <Box flex={2} p={2}>
-    My Profile
-   </Box>
-  )
-}
+    <>
+      {activeTab === 'My Profile' && <MyProfile />}
+      {activeTab === 'My Bookings' && <MyBookings />}
+      {activeTab === 'Manage Bookings' && <ManageBookings />}
+    </>
+  );
+};
 
-export default Rightbar
+export default Rightbar;
