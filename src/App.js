@@ -1,11 +1,10 @@
 import React from "react";
-// import "./App.css";
- import Navbar from "./components/Navbar";
-import Subnavbar from "./components/Navbar/Subnavbar"
-import MyAccount from "./components/Profile/MyAccount"
+import Navbar from "./components/Navbar";
+import Subnavbar from "./components/Navbar/Subnavbar";
+import MyAccount from "./components/Profile/MyAccount";
 import MyBookings from "./components/Profile/MyBookings";
 import MyProfile from "./components/Profile/MyProfile";
-import ManageBookings from "./components/Profile/ManageBookings"
+import ManageBookings from "./components/Profile/ManageBookings";
 import HomePage from "./components/Home/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./components/pages/AboutUs";
@@ -14,7 +13,8 @@ import ContactUs from "./components/pages/ContactUs";
 import Faqs from "./components/pages/Faqs";
 import SignUp from "./components/SignUp/Signup";
 import Login from "./components/Login/Login";
-
+import BusType from "./components/BusType/BusType";
+import OrderSum from "./components/OrderSum/OrderSum";
 import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
 
 
@@ -25,7 +25,6 @@ function App({ children }) {
         <Router>
           <Navbar/>
           <Subnavbar/>
-          <MapboxAutocomplete/>
           <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/about" element={<AboutUs />} />
@@ -35,8 +34,10 @@ function App({ children }) {
           <Route exact path="/signup" element={<SignUp />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/myaccount" element={<MyAccount />} />
-          </Routes>
-        </Router>
+          <Route path="/bus-type" element={<BusType />} />
+          <Route path="/ordersum" element={<OrderSum />} />
+        </Routes>
+      </Router>
     </>
   );
 }
