@@ -1,22 +1,29 @@
 .dobby {
     background-color: aqua;
-    background: aqua;
-    border-radius: 15px; 
-    border: none; 
-    opacity: 0.8; 
+    border-radius: 15px;
+    border: none;
+    opacity: 0.8;
     cursor: pointer;
-
-}
-
-.dobby,Select {
+  }
+  
+  .dobby,
+  .dobby select {
     background-color: aqua;
-    background: aqua;
-    border-radius: 15px; 
-    border: none; 
-    opacity: 0.8; 
-}
-
-.dobby
-{
-    animation: ease-in 0.5s;
-}
+    border-radius: 15px;
+    border: none;
+    opacity: 0.8;
+  }
+  
+  #typewriter-text {
+    animation: typewriter-effect 0.5s ease-in;
+  }
+  
+  @keyframes typewriter-effect {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

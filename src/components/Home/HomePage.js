@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import "./HomePage.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { Link, Routes, Route, Outlet } from "react-router-dom";
-import BusType from "../BusType/BusType";
+import Typewriter from "typewriter-effect/dist/core";
 import {
   Button,
   Typography,
   Container,
   CssBaseline,
+  makeStyles,
   Grid,
   TextField,
   Select,
@@ -18,12 +18,24 @@ import {
   InputLabel,
 } from "@mui/material";
 
-export default function HomePage() {
-  const [showComponents, setShowComponents] = useState(false);
-
-  const handleClick = () => {
-    setShowComponents(true);
+export default function Home() {
+  const HandleClick = () => {
+    let b = true;
   };
+
+  useEffect(() => {
+    // Initialize the Typewriter effect
+    const typewriter = new Typewriter("#typewriter-text", {
+      strings: ["Reserve Your Private Bus", "Create Lasting Memories!"],
+      autoStart: true,
+      loop: true,
+      typeSpeed: 20,
+    });
+    return () => {
+      // Clean up the Typewriter effect
+      typewriter.stop();
+    };
+  }, []);
 
   return (
     <>
@@ -38,7 +50,6 @@ export default function HomePage() {
               Kindly Fill Out The Fields!
             </Typography>
           </Container>
-
           <Container style={{ marginTop: "50px" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
               <Grid item xs={12} md={3}>
@@ -49,7 +60,6 @@ export default function HomePage() {
                   variant="outlined"
                 />
               </Grid>
-
               <Grid item xs={12} md={3}>
                 <TextField
                   fullWidth
@@ -59,19 +69,16 @@ export default function HomePage() {
                   variant="outlined"
                 />
               </Grid>
-
               <Grid item>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker className="dobby" />
                 </LocalizationProvider>
               </Grid>
-
               <Grid item xs={12} md={3}>
                 <FormControl className="dobby" fullWidth>
                   <InputLabel id="demo-simple-select-label">
                     Journey Type
                   </InputLabel>
-
                   <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -82,29 +89,13 @@ export default function HomePage() {
                   </Select>
                 </FormControl>
               </Grid>
-
               <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button
-                  component={Link}
-                  to="/bus-type"
-                  fullWidth
-                  variant="contained"
-                  onClick={handleClick}
-                >
+                <Button onClick={HandleClick} fullWidth variant="contained">
                   Proceed
                 </Button>
               </Grid>
             </Grid>
           </Container>
-
-          {showComponents && (
-            <Container style={{ marginTop: "50px" }}>
-              <Routes>
-                <Route path="/" element={<Outlet />} />
-                <Route path="/bus-type" element={<BusType />} />
-              </Routes>
-            </Container>
-          )}
         </div>
       </main>
     </>

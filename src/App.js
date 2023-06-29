@@ -16,7 +16,7 @@ import Login from "./components/Login/Login";
 import BusType from "./components/BusType/BusType";
 import OrderSum from "./components/OrderSum/OrderSum";
 import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
-
+import "./App.css";
 
 function App({ children }) {
   return (
@@ -24,7 +24,8 @@ function App({ children }) {
 
         <Router>
           <Navbar/>
-          <Subnavbar/>
+          {/* <Subnavbar/> */}
+          {/* <MapboxAutocomplete/> */}
           <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/about" element={<AboutUs />} />

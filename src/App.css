@@ -1,8 +1,8 @@
 body {
  
-  background-image: url('https://images.pexels.com/photos/1537577/pexels-photo-1537577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');  
+  /* background-image: url('https://images.pexels.com/photos/1537577/pexels-photo-1537577.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');   */
 
-  background-image: url('./bgimghome.jpeg'); 
+  /* background-image: url('./bgimghome.jpeg');  */
   background-image: url('https://e1.pxfuel.com/desktop-wallpaper/319/793/desktop-wallpaper-2014-mercedes-benz-travego-m-o580-bus-semi-tractor-transport-and-mobile-backgrounds-mercedes-bus.jpg');
   background-color: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
   background-repeat: no-repeat;
