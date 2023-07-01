@@ -39,6 +39,21 @@ export default function HomePage() {
     };
   }, []);
 
+  const [user, setUser] = useState({
+    from: "",
+    to: "",
+    date: "",
+    journeyType: "",
+  });
+
+  const getUserData = (event) => {
+    const { name, value } = event.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
       <CssBaseline />
@@ -60,6 +75,9 @@ export default function HomePage() {
                   fullWidth
                   className="dobby"
                   label="From"
+                  name="from"
+                  value={user.from}
+                  onChange={getUserData}
                   variant="outlined"
                 />
               </Grid>
@@ -71,6 +89,9 @@ export default function HomePage() {
                   className="dobby"
                   label="To"
                   variant="outlined"
+                  name="to"
+                  value={user.to}
+                  onChange={getUserData}
                 />
               </Grid>
 
@@ -90,9 +111,12 @@ export default function HomePage() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Journey Type"
+                    name="journeyType"
+                    value={user.journeyType}
+                    onChange={getUserData}
                   >
-                    <MenuItem>Journey</MenuItem>
-                    <MenuItem>Return</MenuItem>
+                    <MenuItem value="Journey">Journey</MenuItem>
+                    <MenuItem value="Return">Return</MenuItem>
                   </Select>
                 </FormControl>
               </Grid>
