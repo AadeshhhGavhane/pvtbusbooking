@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import IconButton from "@mui/material/IconButton";
 
@@ -11,7 +17,15 @@ const ActionAreaCard = () => {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "left",
+        marginTop: "0.5px",
+        padding: "50px",
+        top: "5px",
+      }}
+    >
       <Card
         sx={{
           maxWidth: 345,
@@ -29,8 +43,13 @@ const ActionAreaCard = () => {
             />
             {selectedCard === 0 && (
               <IconButton
-                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
-                size="small"
+                sx={{
+                  position: "absolute",
+                  top: 8,
+                  right: 8,
+                  backgroundColor: "white",
+                }}
+                size="big"
               >
                 <CheckCircleIcon sx={{ color: "green" }} />
               </IconButton>
@@ -40,7 +59,7 @@ const ActionAreaCard = () => {
             <Typography gutterBottom variant="h5" component="div">
               Small-Sized Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" textAlign="center">
               Capacity up to 10
             </Typography>
           </CardContent>
@@ -66,7 +85,12 @@ const ActionAreaCard = () => {
             />
             {selectedCard === 1 && (
               <IconButton
-                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
+                sx={{
+                  position: "absolute",
+                  top: 8,
+                  right: 8,
+                  backgroundColor: "white",
+                }}
                 size="small"
               >
                 <CheckCircleIcon sx={{ color: "green" }} />
@@ -77,7 +101,7 @@ const ActionAreaCard = () => {
             <Typography gutterBottom variant="h5" component="div">
               Medium-Sized Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" textAlign="center">
               Capacity up to 28
             </Typography>
           </CardContent>
@@ -102,7 +126,12 @@ const ActionAreaCard = () => {
             />
             {selectedCard === 2 && (
               <IconButton
-                sx={{ position: "absolute", top: 8, right: 8, backgroundColor: "white" }}
+                sx={{
+                  position: "absolute",
+                  top: 8,
+                  right: 8,
+                  backgroundColor: "white",
+                }}
                 size="small"
               >
                 <CheckCircleIcon sx={{ color: "green" }} />
@@ -113,7 +142,7 @@ const ActionAreaCard = () => {
             <Typography gutterBottom variant="h5" component="div">
               Large-Sized Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" textAlign="center">
               Capacity up to 50
             </Typography>
           </CardContent>

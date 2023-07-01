@@ -2,3 +2,30 @@
 {
     color: white;
 }
+
+.Bus-type-m1{
+    width: 60%;
+    /* border: 3px solid green; */
+
+}
+
+.Bus-type-m2
+{
+    background-repeat: no-repeat;
+    width: 40%;
+    align-content: center;
+    margin: auto;
+    /* border: 3px solid green; */
+
+}
+
+.Bus-type-m2 img{
+    width: 100%;
+    
+}
+
+.big-peu{
+    display: flex;
+    min-width: 100%;
+}
+
