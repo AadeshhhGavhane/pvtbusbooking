@@ -21,15 +21,17 @@ const ActionAreaCard = () => {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "center",
+        justifyContent: "left",
+        marginLeft:"4rem",
         marginTop: "0.2rem",
-        padding: "0.1rem"
+        padding: "0.1rem",
       }}
     >
       <Card
         sx={{
-          maxWidth: 300,
-          margin: "0 .1rem",
+          width: "11rem",
+          height: "12rem",
+          margin: "0 0.5rem",
           border: selectedCard === 0 ? ".1rem solid green" : "none",
         }}
       >
@@ -37,7 +39,7 @@ const ActionAreaCard = () => {
           <div style={{ position: "relative" }}>
             <CardMedia
               component="img"
-              height="140"
+              height="110"
               image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
               alt="green iguana"
             />
@@ -49,29 +51,30 @@ const ActionAreaCard = () => {
                   right: 8,
                   backgroundColor: "white",
                 }}
-                size="big"
+                size="small"
               >
                 <CheckCircleIcon sx={{ color: "green" }} />
               </IconButton>
             )}
           </div>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Small-Sized Bus
+            <Typography gutterBottom variant="h5" component="div" textAlign="center">
+              Small Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign="center">
+            <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
               Capacity up to 10
             </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
 
-      {/* Repeat the same pattern for other cards */}
+{/* ----------------------------------------------------------------------------------------------------------- */}
       {/* Card 2 */}
       <Card
         sx={{
-          maxWidth: 300,
-          margin: "0 .1rem",
+          width: "11rem",
+          height: "12rem",
+          margin: "0 0.5rem",
           border: selectedCard === 1 ? ".1rem solid green" : "none",
         }}
       >
@@ -79,7 +82,7 @@ const ActionAreaCard = () => {
           <div style={{ position: "relative" }}>
             <CardMedia
               component="img"
-              height="140"
+              height="110"
               image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
               alt="green iguana"
             />
@@ -98,21 +101,25 @@ const ActionAreaCard = () => {
             )}
           </div>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Medium-Sized Bus
+            <Typography gutterBottom variant="h5" component="div" textAlign="center">
+              Medium Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign="center">
+            <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
               Capacity up to 28
             </Typography>
           </CardContent>
         </CardActionArea>
       </Card>
 
+{/* //------------------------------------------------------------------------------------------------------------- */}
       {/* Card 3 */}
       <Card
         sx={{
-          maxWidth: 300,
-          margin: "0 .1rem",
+          display: "flex",
+          flexWrap: "wrap",
+          width: "11rem",
+          height: "12rem",
+          margin: "0 0.5rem",
           border: selectedCard === 2 ? ".1rem solid green" : "none",
         }}
       >
@@ -120,7 +127,7 @@ const ActionAreaCard = () => {
           <div style={{ position: "relative" }}>
             <CardMedia
               component="img"
-              height="140"
+              height="110"
               image="https://i.natgeofe.com/n/5506954d-6e0f-444c-aa83-a24adbe874e1/reptiles-hero_4x3.jpg"
               alt="green iguana"
             />
@@ -139,10 +146,10 @@ const ActionAreaCard = () => {
             )}
           </div>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Large-Sized Bus
+            <Typography gutterBottom variant="h5" component="div" textAlign="center">
+              Large Bus
             </Typography>
-            <Typography variant="body2" color="text.secondary" textAlign="center">
+            <Typography variant="body2" color="text.secondary" sx={{ textAlign: "center" }}>
               Capacity up to 50
             </Typography>
           </CardContent>

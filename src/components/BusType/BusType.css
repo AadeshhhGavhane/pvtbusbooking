@@ -24,8 +24,42 @@
   min-width: 100%;
 }
 
-@media (max-width: 998px) {
+/* @media (max-width: 998px) {
   html {
     font-size: 55%;
   }
+} */
+
+@media (max-width: 768px) {
+  .card-container {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-container {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  img {
+    display: none;
+  }
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* .left-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+} */
+
+.center-items {
+  display: flex;
+  justify-content: left;
 }

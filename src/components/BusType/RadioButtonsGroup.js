@@ -20,7 +20,16 @@ export default function RadioButtonsGroup() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "left", marginTop: "3rem", marginLeft: "4rem" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "left",
+        marginTop: "3rem",
+        marginLeft: "4rem",
+        marginRight: "4rem",
+      }}
+    >
       <FormControl component="fieldset">
         <FormLabel component="legend">AC / Non AC</FormLabel>
         <RadioGroup
@@ -28,26 +37,26 @@ export default function RadioButtonsGroup() {
           name="ac"
           value={acValue}
           onChange={handleAcChange}
+          style={{ flexDirection: "row" }}
         >
           <FormControlLabel value="AC" control={<Radio />} label="AC" />
           <FormControlLabel value="Non AC" control={<Radio />} label="Non AC" />
         </RadioGroup>
       </FormControl>
 
-      <div style={{ marginLeft: "4rem" }}>
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Bus Type</FormLabel>
-          <RadioGroup
-            aria-label="bustype"
-            name="bustype"
-            value={busTypeValue}
-            onChange={handleBusTypeChange}
-          >
-            <FormControlLabel value="Sleeper" control={<Radio />} label="Sleeper" />
-            <FormControlLabel value="Chair" control={<Radio />} label="Chair" />
-          </RadioGroup>
-        </FormControl>
-      </div>
+      <FormControl component="fieldset" style={{ marginTop: "2rem" }}>
+        <FormLabel component="legend">Bus Type</FormLabel>
+        <RadioGroup
+          aria-label="bustype"
+          name="bustype"
+          value={busTypeValue}
+          onChange={handleBusTypeChange}
+          style={{ flexDirection: "row" }}
+        >
+          <FormControlLabel value="Sleeper" control={<Radio />} label="Sleeper" />
+          <FormControlLabel value="Chair" control={<Radio />} label="Chair" />
+        </RadioGroup>
+      </FormControl>
     </div>
   );
 }
