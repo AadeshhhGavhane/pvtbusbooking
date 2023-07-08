@@ -20,17 +20,17 @@ const ActionAreaCard = () => {
     <div
       style={{
         display: "flex",
-        justifyContent: "left",
-        marginTop: "0.5px",
-        padding: "50px",
-        top: "5px",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        marginTop: "0.2rem",
+        padding: "0.1rem"
       }}
     >
       <Card
         sx={{
-          maxWidth: 345,
-          margin: "0 10px",
-          border: selectedCard === 0 ? "1px solid green" : "none",
+          maxWidth: 300,
+          margin: "0 .1rem",
+          border: selectedCard === 0 ? ".1rem solid green" : "none",
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(0)}>
@@ -70,9 +70,9 @@ const ActionAreaCard = () => {
       {/* Card 2 */}
       <Card
         sx={{
-          maxWidth: 345,
-          margin: "0 10px",
-          border: selectedCard === 1 ? "1px solid green" : "none",
+          maxWidth: 300,
+          margin: "0 .1rem",
+          border: selectedCard === 1 ? ".1rem solid green" : "none",
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(1)}>
@@ -111,9 +111,9 @@ const ActionAreaCard = () => {
       {/* Card 3 */}
       <Card
         sx={{
-          maxWidth: 345,
-          margin: "0 10px",
-          border: selectedCard === 2 ? "1px solid green" : "none",
+          maxWidth: 300,
+          margin: "0 .1rem",
+          border: selectedCard === 2 ? ".1rem solid green" : "none",
         }}
       >
         <CardActionArea onClick={() => handleCardSelect(2)}>
@@ -128,7 +128,7 @@ const ActionAreaCard = () => {
               <IconButton
                 sx={{
                   position: "absolute",
-                  top: 8,
+                  top: 2,
                   right: 8,
                   backgroundColor: "white",
                 }}

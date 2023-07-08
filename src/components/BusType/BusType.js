@@ -25,18 +25,22 @@ export default function BusType() {
           component="h2"
           align="left"
           color="black"
-          padding="65px"
-          marginTop="10px"
+          padding="3.1rem"
+          // marginTop="1rem"
         >
           Select Bus Size
         </Typography>
+
         <TemplateCard />
         <RadioButtonsGroup />
-        <Grid container justifyContent="center" mt={3}>
+
+        <div className="button-handle">
+        <Grid container justifyContent="right" mt={4}>
           <Button onClick={handleProceed} variant="contained" color="primary">
             Proceed
           </Button>
         </Grid>
+        </div>
       </div>
 
       <div className="Bus-type-m2">

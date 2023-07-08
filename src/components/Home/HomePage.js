@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HomePage.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -25,6 +25,11 @@ export default function HomePage() {
   const handleClick = () => {
     setShowComponents(true);
   };
+  useEffect(() => {
+    const peu = document.querySelector(".peu");
+    peu.classList.add("loaded");
+  }, []);
+
   useEffect(() => {
     // Initialize the Typewriter effect
     const typewriter = new Typewriter("#typewriter-text", {
@@ -59,7 +64,7 @@ export default function HomePage() {
       <CssBaseline />
       <main>
         <div className="peu">
-          <Container maxWidth="sm" style={{ marginTop: "50px" }}>
+          <Container maxWidth="sm" style={{ marginTop: "5rem" }}>
             <Typography variant="h3" align="center" color="white" gutterBottom>
               <span id="typewriter-text"></span>
             </Typography>
@@ -68,7 +73,7 @@ export default function HomePage() {
             </Typography>
           </Container>
 
-          <Container style={{ marginTop: "50px" }}>
+          <Container style={{ marginTop: "5rem" }}>
             <Grid container spacing={2} justifyContent="center" direction="row">
               <Grid item xs={12} md={3}>
                 <TextField
@@ -95,10 +100,12 @@ export default function HomePage() {
                 />
               </Grid>
 
-              <Grid item>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker className="dobby"  />
-                </LocalizationProvider>
+              <Grid item xs={12} md={3}>
+                <div className="dobby">
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker />
+                  </LocalizationProvider>
+                </div>
               </Grid>
 
               <Grid item xs={12} md={3}>
@@ -121,7 +128,7 @@ export default function HomePage() {
                 </FormControl>
               </Grid>
 
-              <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
+              <Grid item xs={12} md={3} style={{ marginTop: "3rem" }}>
                 <Button
                   component={Link}
                   to="/bus-type"
@@ -136,7 +143,7 @@ export default function HomePage() {
           </Container>
 
           {showComponents && (
-            <Container style={{ marginTop: "50px" }}>
+            <Container style={{ marginTop: "5rem" }}>
               <Routes>
                 <Route path="/" element={<Outlet />} />
                 <Route path="/bus-type" element={<BusType />} />

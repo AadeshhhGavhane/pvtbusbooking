@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   padding: 0.5rem calc(100vh-1000px);
   z-index: 10;
-  animation: ${fadeIn} 0.5s ease-in-out;
+  animation: ${fadeIn} 0.8s ease-in-out;
 `;
 export const NavLink = styled(Link)`
   color: #fff;

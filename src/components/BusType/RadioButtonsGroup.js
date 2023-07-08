@@ -20,7 +20,7 @@ export default function RadioButtonsGroup() {
   };
 
   return (
-    <div style={{ display: "flex", justifyContent: "left", marginTop: "30px", marginLeft: "60px" }}>
+    <div style={{ display: "flex", justifyContent: "left", marginTop: "3rem", marginLeft: "4rem" }}>
       <FormControl component="fieldset">
         <FormLabel component="legend">AC / Non AC</FormLabel>
         <RadioGroup
@@ -34,7 +34,7 @@ export default function RadioButtonsGroup() {
         </RadioGroup>
       </FormControl>
 
-      <div style={{ marginLeft: "40px" }}>
+      <div style={{ marginLeft: "4rem" }}>
         <FormControl component="fieldset">
           <FormLabel component="legend">Bus Type</FormLabel>
           <RadioGroup
