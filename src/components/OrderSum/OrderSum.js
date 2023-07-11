@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import PaymentIcon from '@mui/icons-material/Payment';
 import {
   Typography,
@@ -11,10 +11,32 @@ import {
   Button
 } from "@mui/material";
 import { pink } from "@mui/material/colors";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Review() {
+  const { user } = useAuth0();
+  let gg = user.email
+  const [email, setEmail] = useState(gg);
+  console.log(email);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("/okok", {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },body:JSON.stringify({
+            email
+        })
+        
+    });
+    console.log(res)
+  };
+
  
   return (
+    
     <>
     <Box  marginLeft={'600px'} width={'400px'} height={'500px'} marginTop={'50px'} align='center'   borderColor={'red'} border={1} borderRadius={10}>
     <Grid container width={'350px'} >
@@ -42,7 +64,7 @@ export default function Review() {
         <Typography variant="h6">~Total Amount After Taxes:</Typography>
       </Grid>
       
-      <Button variant="contained" size="large" sx={{width:'50%', top:"50px"}} marginTop='500px' startIcon={<PaymentIcon/>}> Proceed to pay</Button>
+      <Button onClick={sendEmail} variant="contained" size="large" sx={{width:'50%', top:"50px"}} marginTop='500px' startIcon={<PaymentIcon/>}> Proceed to pay</Button>
      </Box>
     </>
   );
