@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { css } from "@emotion/react";
+import { RingLoader } from "react-spinners";
 import Navbar from "./components/Navbar";
 import Subnavbar from "./components/Navbar/Subnavbar";
 import MyAccount from "./components/Profile/MyAccount";
@@ -16,19 +18,33 @@ import Login from "./components/Login/Login";
 import BusType from "./components/BusType/BusType";
 import OrderSum from "./components/OrderSum/OrderSum";
 import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
-// import "./App.css";
 
-function App({ children }) {
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulating data loading or any asynchronous operation
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading-spinner">
+        <RingLoader color="#ffffff" loading={isLoading} css={spinnerStyle} size={100} />
+      </div>
+    );
+  }
+
   return (
-    <>
-
-        <Router>
-          <Navbar/>
-
-          {/* <Subnavbar/> */}
-          {/* <MapboxAutocomplete/> */}
-          <Routes>
-          <Route path="/" element={<HomePage/>} />
+    <div className="App">
+      <Router>
+        <Navbar />
+        {/* <Subnavbar /> */}
+        {/* <MapboxAutocomplete /> */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/policy" element={<Policy />} />
           <Route path="/contact" element={<ContactUs />} />
@@ -40,8 +56,15 @@ function App({ children }) {
           <Route path="/ordersum" element={<OrderSum />} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
-}
+};
+
+const spinnerStyle = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 
 export default App;

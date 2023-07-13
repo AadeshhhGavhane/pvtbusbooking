@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Nav,
   NavLink,
@@ -8,45 +8,44 @@ import {
   NavBtnLink,
 } from "./NavbarElements";
 import { useAuth0 } from "@auth0/auth0-react";
-
-
+import "./Navbar.css";
 
 const Navbar = () => {
-  const { user, loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const {  loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const [showNav, setShowNav] = useState(false);
+
+  const toggleNav = () => {
+    setShowNav(!showNav);
+  };
 
   return (
     <>
-   
-      <Nav>
-        <NavLink to="/">
-          {/* <img
-              src={require("https://raw.githubusercontent.com/briancodex/react-navbar-v3/642eefd7f46c977087898c4ba0a3dc5564dd301c/src/images/logo.svg")}
-              alt="logo"
-            /> */}
+      <Nav className="navbar">
+        <NavLink to="/" className="nav-logo">
           <h1>Home</h1>
         </NavLink>
-        <Bars />
-        <NavMenu>
-          <NavLink to="/about" activeStyle>
+        <Bars onClick={toggleNav}/>
+         <NavMenu showNav={showNav}>
+          <NavLink to="/about" className="nav-item">
             About
           </NavLink>
-          <NavLink to="/policy" activeStyle>
+          <NavLink to="/policy" className="nav-item">
             Policy
           </NavLink>
-          <NavLink to="/contact" activeStyle>
+          <NavLink to="/contact" className="nav-item">
             Contact Us
           </NavLink>
-          <NavLink to="/faqs" activeStyle>
+          <NavLink to="/faqs" className="nav-item">
             FAQs
           </NavLink>
-          { isAuthenticated && (
-          <NavLink to="/myaccount" activeStyle>
-            My Profile
-          </NavLink>)
-          }
+          {isAuthenticated && (
+            <NavLink to="/myaccount" className="nav-item">
+              My Profile
+            </NavLink>
+          )}
         </NavMenu>
         {isAuthenticated ? (
-          <NavBtn>
+          <NavBtn className="nav-btn">
             <NavBtnLink
               onClick={() =>
                 logout({ logoutParams: { returnTo: window.location.origin } })
@@ -56,7 +55,7 @@ const Navbar = () => {
             </NavBtnLink>
           </NavBtn>
         ) : (
-          <NavBtn>
+          <NavBtn className="nav-btn">
             <NavBtnLink onClick={() => loginWithRedirect()}>
               Log In/Register
             </NavBtnLink>

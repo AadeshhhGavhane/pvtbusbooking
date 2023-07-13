@@ -1,14 +1,14 @@
-.dobby {
-  background-color: aqua;
+/* .dobby {
+  background-color: white;
   border-radius: 15px;
   border: none;
   opacity: 0.8;
   cursor: pointer;
-}
+} */
 
 .dobby,
 .dobby select {
-  background-color: aqua;
+  background-color: white;
   border-radius: 15px;
   border: none;
   opacity: 0.8;
@@ -67,7 +67,6 @@ body,
   );
   z-index: -1;
 }
-
 .peu::after {
   content: "";
   position: fixed;
@@ -78,9 +77,11 @@ body,
   background-image: url("https://e1.pxfuel.com/desktop-wallpaper/319/793/desktop-wallpaper-2014-mercedes-benz-travego-m-o580-bus-semi-tractor-transport-and-mobile-backgrounds-mercedes-bus.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
+  background-attachment: fixed;
   z-index: -2;
 }
+
 @media (max-width: 600px) {
   /* Adjust the DatePicker width for smaller screens */
   .dobby-datepicker .MuiPickersBasePicker-container {
