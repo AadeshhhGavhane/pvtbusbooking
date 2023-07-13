@@ -22,8 +22,8 @@ const ActionAreaCard = () => {
         display: "flex",
         flexWrap: "wrap",
         justifyContent: "left",
-        marginLeft:"4rem",
-        marginTop: "0.2rem",
+        marginLeft:"3.9rem",
+        marginTop: "0.1rem",
         padding: "0.1rem",
       }}
     >
