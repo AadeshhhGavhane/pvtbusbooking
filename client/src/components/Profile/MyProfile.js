@@ -1,56 +1,61 @@
-import React from 'react'
-import { Box, Grid, TextField ,Button, Container} from '@mui/material';
+import { useEffect, useState } from "react";
+import { Box, Grid, TextField, Button, Container } from '@mui/material';
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 const Rightbar = () => {
-  return (
-   
-<Box sx={{ marginTop: '50px' }}>
-  <Grid container spacing={9} justifyContent="center" direction="row">
-    <Grid item xs={12} md={3}>
-      <TextField
-        fullWidth
-        className="dobby"
-        label="First Name"
-        variant="outlined"
-      />
-    </Grid>
-    <Grid item xs={12} md={3}>
-      <TextField
-        fullWidth
-        id="outlined-basic"
-        className="dobby"
-        label="Last Name"
-        variant="outlined"
-      />
-    </Grid>
-    <Grid/>
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
-    <Grid container spacing={9} justifyContent="center" direction="column"></Grid>
-     <Grid item xs={12} md={3}>
-      <TextField
-        fullWidth
-        className="dobby"
-        label="Contact"
-        variant="outlined"
-      />
-    </Grid>
-    <Grid item xs={12} md={3}>
-      <TextField
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+
+  return (
+    <Box sx={{ marginTop: '50px' }}>
+      <Grid container spacing={9} justifyContent="center" direction="row">
+        <Grid item xs={12} md={3}>
+          <TextField
+            fullWidth
+            className="dobby"
+            label={isAuthenticated ? user.name : "First Name"}
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12} md={3}>
+        <TextField
         fullWidth
         id="outlined-basic"
         className="dobby"
-        label="Email"
+        label="Location"
         variant="outlined"
-      /> 
-     </Grid> 
-  </Grid>
-     <Container justifyContent="center">
-                <Button sx={{width : '50', maxWidth: "142%"}} justifyContent="center" variant="contained">
-                  Proceed
-                </Button>
-              </Container>
-</Box>
+      />
+        </Grid>
+        <Grid container spacing={9} justifyContent="center" direction="column"></Grid>
+        <Grid item xs={12} md={3}>
+          <TextField
+            fullWidth
+            className="dobby"
+            label="Contact"
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <TextField
+            fullWidth
+            id="outlined-basic"
+            className="dobby"
+            label={isAuthenticated ? user.email : "Email"}
+            variant="outlined"
+          />
+        </Grid>
+        <Grid item xs={50} md={8} style={{ marginTop: "20px", marginLeft: "700px" }}>
+          <Button sx={{ width: '90', maxWidth: "200%" }} justifyContent="center" variant="contained">
+            Proceed
+          </Button>
+        </Grid>
+      </Grid>
+    </Box>
   )
 }
 
-export default Rightbar
+export default Rightbar;

@@ -43,7 +43,8 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 3, height: "370px", width: "350px" }}>
+         
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -75,32 +76,31 @@ export default function BasicTabs() {
     <Stack
       direction="row"
       spacing={2}
-      
       sx={{ display: "flex", justifyContent: "center" }}
-
     >
       <Item>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          sx={{ width: "100%" }}
         >
-          <Tab label="Datesheet" {...a11yProps(0)} />
-          <Tab label="Cancellation" {...a11yProps(1)} />
+          <Tab label="Datesheet" {...a11yProps(0)} sx={{ minWidth: "170px" }} />
+          <Tab label="Cancellation" {...a11yProps(1)} sx={{ minWidth: "170px" }} />
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <Box style={{ marginTop: "50px" }}>
+          <Box sx={{ marginTop: "40px", height: "70%" }}>
             <Grid item marginBottom={5} xs={12} md={3}>
               <FormControl className="dobby" fullWidth>
-                <InputLabel id="demo-simple-select-label">
+                <InputLabel id="demo-simple-select-label" sx={{ width: "100%" }}>
                   Choose Booking
                 </InputLabel>
-
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="No of Bookings"
+                  sx={{ width: "100%" }}
                 >
                   <MenuItem>Booking No 1</MenuItem>
                   <MenuItem>Booking No 2</MenuItem>
@@ -108,31 +108,31 @@ export default function BasicTabs() {
               </FormControl>
             </Grid>
 
-            <Grid item>
+            <Grid item marginBottom={5} xs={12} md={3}>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker className="dobby" />
+                <DatePicker className="dobby" sx={{ width: "100%" }} />
               </LocalizationProvider>
             </Grid>
           </Box>
-          <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button onClick={handleChange} fullWidth variant="contained">
-                  Proceed
-                </Button>
-              </Grid>
+          <Grid item xs={12} md={3} style={{ marginTop: "50px" }}>
+            <Button onClick={handleChange} fullWidth variant="contained">
+              Proceed
+            </Button>
+          </Grid>
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <Box style={{ marginTop: "50px" }}>
+          <Box sx={{ marginTop: "40px", height: "70%" }}>
             <Grid item marginBottom={5} xs={12} md={3}>
               <FormControl className="dobby" fullWidth>
-                <InputLabel id="demo-simple-select-label">
+                <InputLabel id="demo-simple-select-label" sx={{ width: "100%" }}>
                   Choose Booking
                 </InputLabel>
-
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="No of Bookings"
+                  sx={{ width: "100%" }}
                 >
                   <MenuItem>Booking No 1</MenuItem>
                   <MenuItem>Booking No 2</MenuItem>
@@ -140,9 +140,9 @@ export default function BasicTabs() {
               </FormControl>
             </Grid>
 
-            <FormControl>
+            <FormControl sx={{ marginLeft: "20px" }}>
               <FormLabel id="demo-row-radio-buttons-group-label">
-                Are you sure ?
+                Are you sure?
               </FormLabel>
               <RadioGroup
                 row
@@ -154,11 +154,11 @@ export default function BasicTabs() {
               </RadioGroup>
             </FormControl>
           </Box>
-          <Grid item xs={12} md={3} style={{ marginTop: "30px" }}>
-                <Button onClick={handleChange} fullWidth variant="contained">
-                  Confirm
-                </Button>
-              </Grid>
+          <Grid item xs={12} md={3} style={{ marginTop: "40px" }}>
+            <Button onClick={handleChange} fullWidth variant="contained">
+              Confirm
+            </Button>
+          </Grid>
         </TabPanel>
       </Item>
     </Stack>
