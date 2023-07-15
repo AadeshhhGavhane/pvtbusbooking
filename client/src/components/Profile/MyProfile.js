@@ -26,7 +26,7 @@ const Rightbar = () => {
         fullWidth
         id="outlined-basic"
         className="dobby"
-        label="Location"
+        label="Date of Birth"
         variant="outlined"
       />
         </Grid>
@@ -48,7 +48,18 @@ const Rightbar = () => {
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={50} md={8} style={{ marginTop: "20px", marginLeft: "700px" }}>
+
+        <Grid container spacing={9} justifyContent="center" direction="column"></Grid>
+        <Grid item xs={12} md={3}>
+          <TextField
+            fullWidth
+            className="dobby"
+            label="Gender"
+            variant="outlined"
+          />
+        </Grid>
+        
+        <Grid item xs={50} md={8} style={{  marginLeft: "690px" }}>
           <Button sx={{ width: '90', maxWidth: "200%" }} justifyContent="center" variant="contained">
             Proceed
           </Button>
