@@ -18,13 +18,16 @@ import {
   MenuItem,
   InputLabel,
 } from "@mui/material";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function HomePage() {
+  const { isAuthenticated } = useAuth0();
   const [showComponents, setShowComponents] = useState(false);
 
   const handleClick = () => {
     setShowComponents(true);
   };
+
   useEffect(() => {
     const peu = document.querySelector(".peu");
     peu.classList.add("loaded");
@@ -135,6 +138,7 @@ export default function HomePage() {
                   fullWidth
                   variant="contained"
                   onClick={handleClick}
+                  disabled={!isAuthenticated}
                 >
                   Proceed
                 </Button>
@@ -155,3 +159,4 @@ export default function HomePage() {
     </>
   );
 }
+
