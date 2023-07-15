@@ -1,33 +1,32 @@
+const express = require('express');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const mysql = require("mysql2");
+require("dotenv").config();
+
+const router = require("./routes/router")
+const port = 5000;
 
 const db = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "hello",
-    database: "pvtbookings"
-  });
-require("dotenv").config();
-const express = require("express");
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "pvtbusbooking"
+});
 const app = express();
-const router = require("./routes/router")
-const cors = require("cors")
-
-const port = 8006;
-
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router)
 
 app.listen(port,()=>{
     console.log(`server start at port ${port}`)
 })
 
-app.post("/emailsend", (req, res) => {
+app.post("/sendemail", (req, res) => {
     const { email, name } = req.body;
-    let checkEmailQuery = `SELECT COUNT(*) AS count FROM user WHERE user_email = '${email}'`;
-    let insertQuery = `INSERT INTO user (user_email, name) SELECT '${email}', '${name}' WHERE NOT EXISTS (SELECT 1 FROM driver WHERE email = '${email}')`;
+    let checkEmailQuery = `SELECT COUNT(*) AS count FROM user WHERE useremail = '${email}'`;
+    let insertQuery = `INSERT INTO user (useremail, name) SELECT '${email}', '${name}' WHERE NOT EXISTS (SELECT 1 FROM user WHERE useremail = '${email}')`;
   
     db.query(checkEmailQuery, (err, result) => {
       if (err) {

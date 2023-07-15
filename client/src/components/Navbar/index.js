@@ -34,7 +34,7 @@ const Navbar = () => {
   }, [email, name]);
 
   const sendUserData = async () => {
-    const res = await fetch("http://localhost:8006/sendemail", {
+    const res = await fetch("http://localhost:5000/sendemail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
