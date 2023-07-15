@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { RingLoader } from "react-spinners";
 import Navbar from "./components/Navbar";
 import Subnavbar from "./components/Navbar/Subnavbar";
+import Footer from "./components/Navbar/Footer"
 import MyAccount from "./components/Profile/MyAccount";
 import MyBookings from "./components/Profile/MyBookings";
 import MyProfile from "./components/Profile/MyProfile";
@@ -42,6 +43,7 @@ const App = () => {
       <Router>
         <Navbar />
         {/* <Subnavbar /> */}
+        <Footer/>
         {/* <MapboxAutocomplete /> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
