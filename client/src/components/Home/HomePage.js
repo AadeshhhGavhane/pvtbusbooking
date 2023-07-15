@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
+
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -21,7 +22,7 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function HomePage() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated ,loginWithRedirect} = useAuth0();
   const [showComponents, setShowComponents] = useState(false);
 
   const handleClick = () => {
@@ -134,13 +135,13 @@ export default function HomePage() {
               <Grid item xs={12} md={3} style={{ marginTop: "3rem" }}>
                 <Button
                   component={Link}
-                  to="/bus-type"
+                  to={isAuthenticated && "/bus-type"}
                   fullWidth
                   variant="contained"
-                  onClick={handleClick}
-                  disabled={!isAuthenticated}
+                  onClick={isAuthenticated?handleClick:() => loginWithRedirect()}
+                 
                 >
-                  Proceed
+                  {isAuthenticated?"Proceed":"Login to proceed"}
                 </Button>
               </Grid>
             </Grid>
