@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { css } from "@emotion/react";
 import { RingLoader } from "react-spinners";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/index2";
 import Subnavbar from "./components/Navbar/Subnavbar";
 import Footer from "./components/Navbar/Footer"
 import MyAccount from "./components/Profile/MyAccount";
 import MyBookings from "./components/Profile/MyBookings";
 import MyProfile from "./components/Profile/MyProfile";
 import ManageBookings from "./components/Profile/ManageBookings";
-import HomePage from "./components/Home/HomePage";
+import HomePage from "./components/Home/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUs from "./components/pages/AboutUs";
 import Policy from "./components/pages/Policy";
@@ -21,22 +21,22 @@ import OrderSum from "./components/OrderSum/OrderSum";
 import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulating data loading or any asynchronous operation
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   // Simulating data loading or any asynchronous operation
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 3000);
+  // }, []);
 
-  if (isLoading) {
-    return (
-      <div className="loading-spinner">
-        <RingLoader color="#ffffff" loading={isLoading} css={spinnerStyle} size={100} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="loading-spinner">
+  //       <RingLoader color="#ffffff" loading={isLoading} css={spinnerStyle} size={100} />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="App">

@@ -5,6 +5,7 @@ import { Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./BusType.css";
 import undrawimg from "../images/undraw_booking_re_gw4j.svg";
+
 export default function BusType() {
   const navigate = useNavigate();
   const handleProceed = () => {
@@ -13,6 +14,7 @@ export default function BusType() {
     // Navigate to the next page
     navigate("/ordersum");
   };
+
   return (
     <div className="big-peu">
       <div className="Bus-type-m1">
@@ -30,9 +32,12 @@ export default function BusType() {
         <RadioButtonsGroup />
 
         <Grid container justifyContent="right" mt={1}>
-          <Button onClick={handleProceed} variant="contained" color="primary">
-            Proceed
-          </Button>
+          {/* Add the "proceed-button-center" class to center the button */}
+          <div className="proceed-button-center">
+            <Button onClick={handleProceed} variant="contained" color="primary">
+              Proceed
+            </Button>
+          </div>
         </Grid>
       </div>
 
