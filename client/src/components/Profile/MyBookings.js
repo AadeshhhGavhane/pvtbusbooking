@@ -1,9 +1,25 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+
+import * as React from "react";
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+
+import {
+  Grid,
+  Paper,
+  Stack,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -17,7 +33,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ p: 8, height: "500px", width: "550px" }}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -34,11 +50,11 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
-export default function CenteredTabs() {
+export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -46,42 +62,31 @@ export default function CenteredTabs() {
   };
 
   return (
-    <Box
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      height="100vh"
+    <Stack
+      direction="row"
+      spacing={7}
+      sx={{ display: "flex", justifyContent: "center" }}
     >
-      <Box sx={{ width: '100%' }}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-            centered
-          >
-            <Tab label="Past" {...a11yProps(0)} />
-            <Tab label="Upcoming" {...a11yProps(1)} />
-            <Tab label="Awaiting" {...a11yProps(2)} />
-          </Tabs>
-        </Box>
-        <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        height="100vh"
-        >
+      <Item>
+      <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+  <Tab label="Past" {...a11yProps(0)} sx={{ minWidth: 180 }} />
+  <Tab label="Awaiting" {...a11yProps(1)} sx={{ minWidth: 180 }} />
+  <Tab label="Upcoming" {...a11yProps(2)} sx={{ minWidth: 180 }} />
+</Tabs>
+
         <TabPanel value={value} index={0}>
-          abc
+          
         </TabPanel>
+
         <TabPanel value={value} index={1}>
-          def
+          
         </TabPanel>
+
         <TabPanel value={value} index={2}>
-          mno
+         
         </TabPanel>
-        </Box>
-      </Box>
-    </Box>
+      </Item>
+    </Stack>
   );
 }
+
