@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
-
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
@@ -22,11 +21,47 @@ import {
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function HomePage() {
-  const { isAuthenticated ,loginWithRedirect} = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   const [showComponents, setShowComponents] = useState(false);
+  const [userDetails, setUserDetails] = useState({
+    from: "",
+    to: "",
+    date: "",
+    journeyType: "",
+    email: "",
+  });
 
-  const handleClick = () => {
-    setShowComponents(true);
+  const handleClick = async () => {
+    const ticketId = Math.floor(Math.random() * 10000) + 1;
+
+    let from = userDetails.from;
+    let to = userDetails.to;
+    let date = new Date(userDetails.date).toISOString().slice(0, 19).replace("T", " ");
+    let journeyType = userDetails.journeyType;
+    let email = user.email;
+
+    const res = await fetch("http://localhost:5000/storeuserdata", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ticketId,
+        from,
+        to,
+        date,
+        journeyType,
+        email,
+      }),
+    });
+
+    // axios.post("/storeuserdata", data)
+    // .then(() => {
+    //   setShowComponents(true);
+    // })
+    // .catch((error) => {
+    //   console.error("Error storing user data:", error);
+    // });
   };
 
   useEffect(() => {
@@ -48,19 +83,27 @@ export default function HomePage() {
     };
   }, []);
 
-  const [user, setUser] = useState({
-    from: "",
-    to: "",
-    date: "",
-    journeyType: "",
-  });
-
   const getUserData = (event) => {
     const { name, value } = event.target;
-    setUser((prevUser) => ({
-      ...prevUser,
-      [name]: value,
-    }));
+
+    if (name === "date") {
+      const date = new Date(value);
+      const formattedDate = new Intl.DateTimeFormat("en", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }).format(date);
+
+      setUserDetails((prevUser) => ({
+        ...prevUser,
+        [name]: formattedDate,
+      }));
+    } else {
+      setUserDetails((prevUser) => ({
+        ...prevUser,
+        [name]: value,
+      }));
+    }
   };
 
   return (
@@ -85,7 +128,7 @@ export default function HomePage() {
                   className="dobby"
                   label="From"
                   name="from"
-                  value={user.from}
+                  value={userDetails.from}
                   onChange={getUserData}
                   variant="outlined"
                 />
@@ -99,7 +142,7 @@ export default function HomePage() {
                   label="To"
                   variant="outlined"
                   name="to"
-                  value={user.to}
+                  value={userDetails.to}
                   onChange={getUserData}
                 />
               </Grid>
@@ -107,7 +150,15 @@ export default function HomePage() {
               <Grid item xs={12} md={3}>
                 <div className="dobby">
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker />
+                    <DatePicker
+                      value={userDetails.date}
+                      onChange={(date) => {
+                        setUserDetails((prevUser) => ({
+                          ...prevUser,
+                          date,
+                        }));
+                      }}
+                    />
                   </LocalizationProvider>
                 </div>
               </Grid>
@@ -123,7 +174,7 @@ export default function HomePage() {
                     id="demo-simple-select"
                     label="Journey Type"
                     name="journeyType"
-                    value={user.journeyType}
+                    value={userDetails.journeyType}
                     onChange={getUserData}
                   >
                     <MenuItem value="Journey">Journey</MenuItem>
@@ -138,10 +189,9 @@ export default function HomePage() {
                   to={isAuthenticated && "/bus-type"}
                   fullWidth
                   variant="contained"
-                  onClick={isAuthenticated?handleClick:() => loginWithRedirect()}
-                 
+                  onClick={isAuthenticated ? handleClick : () => loginWithRedirect()}
                 >
-                  {isAuthenticated?"Proceed":"Login to proceed"}
+                  {isAuthenticated ? "Proceed" : "Login to proceed"}
                 </Button>
               </Grid>
             </Grid>
@@ -160,4 +210,3 @@ export default function HomePage() {
     </>
   );
 }
-
