@@ -1,6 +1,19 @@
 .dob-1 {
   color: white;
 }
+/* BusType.css */
+.proceed-button-center {
+  text-align: center;
+}
+
+/* Add a media query for smaller screens (adjust the max-width as needed) */
+@media (max-width: 600px) {
+  .proceed-button-center {
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+  }
+}
 
 .Bus-type-m1 {
   width: 60%;
@@ -18,17 +31,15 @@
 .Bus-type-m2 img {
   max-width: 100%;
 }
+.Bus-type-m3 {
+  display: flex;
+  justify-content: center;
+}
 
 .big-peu {
   display: flex;
   min-width: 100%;
 }
-
-/* @media (max-width: 998px) {
-  html {
-    font-size: 55%;
-  }
-} */
 
 @media (max-width: 768px) {
   .card-container {
