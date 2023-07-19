@@ -58,23 +58,18 @@
 
 const express = require("express");
 const mysql = require("mysql2");
-require("dotenv").config();
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
-const router = require("./routes/router")
+const app = express();
 const port = 5000;
 
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
   password: "root",
-  database: "test"
+  database: "pvtbusbooking",
 });
-const app = express();
-const router = require("./routes/router");
-const cors = require("cors");
-const mysql = require("mysql2");
-
-
 
 app.use(cors());
 app.use(express.json());
@@ -189,8 +184,8 @@ app.post("/save-values", (req, res) => {
     console.log("Data inserted successfully!");
     res.sendStatus(200);
   });
-
+});
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
