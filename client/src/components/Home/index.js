@@ -19,6 +19,7 @@ import {
   InputLabel,
 } from "@mui/material";
 import { useAuth0 } from "@auth0/auth0-react";
+import { toast, ToastContainer } from 'react-toastify';
 
 export default function HomePage() {
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
@@ -27,17 +28,17 @@ export default function HomePage() {
     from: "",
     to: "",
     date: "",
-    journeyType: "",
+    journeytype: "",
     email: "",
   });
 
   const handleClick = async () => {
-    const ticketId = Math.floor(Math.random() * 10000) + 1;
+    const ticketid = Math.floor(Math.random() * 10000) + 1;
 
     let from = userDetails.from;
     let to = userDetails.to;
     let date = new Date(userDetails.date).toISOString().slice(0, 19).replace("T", " ");
-    let journeyType = userDetails.journeyType;
+    let journeytype = userDetails.journeytype;
     let email = user.email;
 
     const res = await fetch("http://localhost:5000/storeuserdata", {
@@ -46,11 +47,11 @@ export default function HomePage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        ticketId,
+        ticketid,
         from,
         to,
         date,
-        journeyType,
+        journeytype,
         email,
       }),
     });
@@ -84,30 +85,31 @@ export default function HomePage() {
   }, []);
 
   const getUserData = (event) => {
-    const { name, value } = event.target;
+  const { name, value } = event.target;
 
-    if (name === "date") {
-      const date = new Date(value);
-      const formattedDate = new Intl.DateTimeFormat("en", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }).format(date);
+  if (name === "date") {
+    const date = new Date(value);
+    const formattedDate = new Intl.DateTimeFormat("en", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(date);
 
-      setUserDetails((prevUser) => ({
-        ...prevUser,
-        [name]: formattedDate,
-      }));
-    } else {
-      setUserDetails((prevUser) => ({
-        ...prevUser,
-        [name]: value,
-      }));
-    }
-  };
+    setUserDetails((prevUser) => ({
+      ...prevUser,
+      [name]: formattedDate,
+    }));
+  } else {
+    setUserDetails((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
+  }
+};
 
   return (
     <>
+    <ToastContainer />
       <CssBaseline />
       <main>
         <div className="peu">
@@ -173,8 +175,8 @@ export default function HomePage() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     label="Journey Type"
-                    name="journeyType"
-                    value={userDetails.journeyType}
+                    name="journeytype"
+                    value={userDetails.journeytype}
                     onChange={getUserData}
                   >
                     <MenuItem value="Journey">Journey</MenuItem>
