@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import RadioButtonsGroup from "./RadioButtonsGroup";
 import { Button, Grid, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./BusType.css";
@@ -7,18 +6,6 @@ import undrawimg from "../images/undraw_booking_re_gw4j.svg";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import IconButton from "@mui/material/IconButton";
-import {
-  Radio,
-  RadioGroup,
-  FormControlLabel,
-  FormControl,
-  FormLabel,
-} from "@mui/material";
-
 import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import IconButton from "@mui/material/IconButton";
@@ -34,27 +21,33 @@ export default function BusType() {
   const api = axios.create({
     baseURL: "http://localhost:5000/api", // Replace with your backend API base URL
   });
+
   const navigate = useNavigate();
+
   const handleProceed = () => {
     // Handle the proceed action
     // Add your logic here
     // Navigate to the next page
     navigate("/ordersum");
+
+    // Get the selected bus size based on the index of the selectedCard
     const bussizeOptions = ["Small", "Medium", "Large"];
     const bussize = bussizeOptions[selectedCard];
 
+    // Get the selected bus type and AC value from the state
     const bustype = busTypeValue;
     const ac = acValue;
-      // Send the data to the backend
-      api
+
+    // Send the data to the backend
+    api
       .post("/tempbooking", { bussize, bustype, ac })
       .then((response) => {
         console.log(response.data);
-        // toast.success("Booking details updated successfully!");
+        toast.success("Booking details updated successfully!");
       })
       .catch((error) => {
         console.error("Error updating booking details: ", error);
-        // toast.error("Failed to update booking details. Please try again.");
+        toast.error("Failed to update booking details. Please try again.");
       });
   };
 
@@ -64,25 +57,6 @@ export default function BusType() {
     setSelectedCard(index);
   };
 
-  // \\\\\\\\\\\\\\\\\\\\\\\\\\For radio button function\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  const [acValue, setAcValue] = React.useState("AC");
-  const [busTypeValue, setBusTypeValue] = React.useState("Sleeper");
-
-  const handleAcChange = (event) => {
-    setAcValue(event.target.value);
-  };
-
-  const handleBusTypeChange = (event) => {
-    setBusTypeValue(event.target.value);
-  };
-
-  const [selectedCard, setSelectedCard] = useState(null);
-
-  const handleCardSelect = (index) => {
-    setSelectedCard(index);
-  };
-
-  // \\\\\\\\\\\\\\\\\\\\\\\\\\For radio button function\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
   const [acValue, setAcValue] = React.useState("AC");
   const [busTypeValue, setBusTypeValue] = React.useState("Sleeper");
 
