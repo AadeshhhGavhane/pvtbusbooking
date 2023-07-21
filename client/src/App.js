@@ -42,6 +42,7 @@ const App = () => {
       <div className="app-content">
         <Router>
           <Navbar />
+          <SubNavbar />
           <Footer />
           {/* <MapboxAutocomplete /> */}
           <Routes>
