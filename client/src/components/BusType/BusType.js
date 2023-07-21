@@ -19,6 +19,17 @@ import {
   FormLabel,
 } from "@mui/material";
 
+import { Card, CardActionArea, CardContent, CardMedia } from "@mui/material";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import IconButton from "@mui/material/IconButton";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material";
+
 export default function BusType() {
   const api = axios.create({
     baseURL: "http://localhost:5000/api", // Replace with your backend API base URL
@@ -45,6 +56,24 @@ export default function BusType() {
         console.error("Error updating booking details: ", error);
         // toast.error("Failed to update booking details. Please try again.");
       });
+  };
+
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardSelect = (index) => {
+    setSelectedCard(index);
+  };
+
+  // \\\\\\\\\\\\\\\\\\\\\\\\\\For radio button function\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  const [acValue, setAcValue] = React.useState("AC");
+  const [busTypeValue, setBusTypeValue] = React.useState("Sleeper");
+
+  const handleAcChange = (event) => {
+    setAcValue(event.target.value);
+  };
+
+  const handleBusTypeChange = (event) => {
+    setBusTypeValue(event.target.value);
   };
 
   const [selectedCard, setSelectedCard] = useState(null);
