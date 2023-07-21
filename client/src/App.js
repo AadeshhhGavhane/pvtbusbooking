@@ -10,7 +10,7 @@ import MyProfile from "./components/Profile/MyProfile";
 import ManageBookings from "./components/Profile/ManageBookings";
 import HomePage from "./components/Home/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AboutUs from "./components/pages/AboutUs";
+import AboutUs from "./components/pages/about";
 import Policy from "./components/pages/Policy";
 import ContactUs from "./components/pages/ContactUs";
 import Faqs from "./components/pages/Faqs";
