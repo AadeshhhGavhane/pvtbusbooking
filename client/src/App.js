@@ -19,6 +19,8 @@ import Login from "./components/Login/Login";
 import BusType from "./components/BusType/BusType";
 import OrderSum from "./components/OrderSum/OrderSum";
 // import MapboxAutocomplete from "./components/Home/MapboxAutocomplete";
+import Loader from "./components/Loader/Load";
+import Homepage1 from "./components/Home/index1";
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,23 +32,18 @@ const App = () => {
 
   return (
     <div className={`App ${isLoading ? "zoom-in" : ""}`}>
-    {isLoading ? (
-      <div className="preloader-wrap">
-        <div className="preloader">
-          <div className="loading-circle loading-circle-one"></div>
-          <div className="loading-circle loading-circle-two"></div>
-          <div className="loading-circle loading-circle-three"></div>
-        </div>
-      </div>
-    ) : (
+      {isLoading ? (
+          <Loader />
+      ) : (
       <div className="app-content">
         <Router>
           <Navbar />
-          <SubNavbar />
+          {/* <SubNavbar /> */}
           <Footer />
           {/* <MapboxAutocomplete /> */}
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route path="/" element={<Homepage1 />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/policy" element={<Policy />} />
             <Route path="/contact" element={<ContactUs />} />

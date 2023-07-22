@@ -2,15 +2,11 @@ import React, {useState, useEffect} from "react";
 import PaymentIcon from '@mui/icons-material/Payment';
 import {
   Typography,
-  List,
-  ListItem,
-  ListItemText,
   Grid,
-  CssBaseline,
   Box,
   Button
 } from "@mui/material";
-import { pink } from "@mui/material/colors";
+// import { pink } from "@mui/material/colors";
 import { useAuth0 } from "@auth0/auth0-react";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
