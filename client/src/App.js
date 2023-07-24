@@ -38,7 +38,7 @@ const App = () => {
       <div className="app-content">
         <Router>
           <Navbar />
-          {/* <SubNavbar /> */}
+           <SubNavbar />
           <Footer />
           {/* <MapboxAutocomplete /> */}
           <Routes>
